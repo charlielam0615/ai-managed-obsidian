@@ -269,13 +269,6 @@ The central idea in this repo is that future comprehension should get cheaper ov
 
 The `sleep` skill is the bounded manual consolidation pass that makes that happen. It creates progressive-disclosure layers in the vault itself so later humans and agents can understand dense material faster without relying on hidden memory.
 
-## Technical Notes
-
-- Empty top-level content folders are preserved in Git with `.gitkeep`.
-- `.omx/` is ignored because it is runtime metadata, not canonical vault content.
-- Finder `.DS_Store` files are ignored.
-- Obsidian CLI compatibility was checked against both official docs and local CLI help while designing the skills.
-
 ## References
 
 - OpenAI Academy: [Skills](https://academy.openai.com/public/resources/skills)
