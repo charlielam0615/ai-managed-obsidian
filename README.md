@@ -14,6 +14,8 @@ This repository is opinionated about a few things:
 
 The repo currently focuses on the operating contract:
 
+- `AGENTS.md` defines top-level agent routing and completion-evidence expectations
+- `CLAUDE.md` defines project memory for Claude Code
 - `System/Rules/` defines durable policy
 - `System/Skills/` defines reusable operational workflows for agents
 
@@ -22,6 +24,8 @@ It is designed to work well under cold-start conditions, before embeddings, regi
 ## Repository Layout
 
 ```text
+AGENTS.md
+CLAUDE.md
 Inbox/
 Notes/
 Library/
@@ -34,6 +38,8 @@ System/
 
 ### Top-level intent
 
+- `AGENTS.md`: repo-wide agent entrypoint and workflow contract
+- `CLAUDE.md`: project memory and task-routing guide for Claude Code
 - `Inbox/`: single intake point for human-created new material
 - `Notes/`: main Markdown knowledge layer
 - `Library/Papers/`: canonical storage for PDF papers
@@ -121,6 +127,8 @@ Different agent tools look for local skills in different places. The sections be
 
 ### Codex
 
+The repo also includes a top-level `AGENTS.md` that routes common task types to the correct vault workflows and reporting expectations.
+
 Codex officially supports Agent Skills and scans project-local skills from `.agents/skills/` as well as user-level and admin-level locations.
 
 Important compatibility detail:
@@ -175,10 +183,10 @@ The official project-level mechanisms are:
 Recommended approach for this repo:
 
 1. Keep the canonical skill definitions in `System/Skills/`
-2. Add a lightweight project `CLAUDE.md`
+2. Use the included lightweight project `CLAUDE.md`
 3. Add project slash commands that tell Claude Code to read and use a specific skill on demand
 
-Suggested `CLAUDE.md`:
+Current `CLAUDE.md`:
 
 ```md
 # Project Memory
@@ -233,6 +241,7 @@ Notes:
 - `CLAUDE.md` is team-shared project memory.
 - Anthropic documents `CLAUDE.local.md` as deprecated in favor of imports.
 - Keep `CLAUDE.md` lean. Avoid importing every skill file directly unless you want all of them loaded into context eagerly.
+- `CLAUDE.md` should route Claude toward `Notes/Index.md`, the matching skill in `System/Skills/`, and the relevant rules for structure-sensitive work.
 
 ### Other Tools
 
