@@ -39,12 +39,15 @@ System/
 - `Library/Papers/`: canonical storage for PDF papers
 - `System/`: operating contract for humans and agents
 
+`Notes/Index.md` is the curated entry point into the note layer and should stay selective rather than exhaustive.
+
 ## What Is In Here
 
 ### Rules
 
 `System/Rules/` currently includes:
 
+- `content-index`
 - `operating-model`
 - `inbox-and-placement`
 - `library-and-papers`
@@ -93,6 +96,8 @@ That is intentional. The goal is to start with a clean, understandable base.
 ## Using The Vault In Obsidian
 
 This repository is an Obsidian vault. Open the repository root as a vault in Obsidian.
+
+For broad orientation, start with `Notes/Index.md` and expand from there through note links and related pages.
 
 The workflow assumes:
 

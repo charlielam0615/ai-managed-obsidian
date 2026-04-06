@@ -72,10 +72,11 @@ Prefer exact paths for high-risk operations.
 
 ## Retrieval Pattern
 
-1. Start with `search` or `search:context`.
-2. Use `read` for the most relevant notes.
-3. Expand with `links` and `backlinks` when relationship traversal is useful.
-4. Use `unresolved` when checking vault integrity or fallout from path changes.
+1. For broad or exploratory tasks, read `Notes/Index.md` first when it exists.
+2. Start with `search` or `search:context`.
+3. Use `read` for the most relevant notes.
+4. Expand with `links` and `backlinks` when relationship traversal is useful.
+5. Use `unresolved` when checking vault integrity or fallout from path changes.
 
 Prefer bounded retrieval over scanning the whole vault.
 

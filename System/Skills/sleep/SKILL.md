@@ -58,6 +58,7 @@ These are all the same kind of work at different scales: read the source materia
 
 Preferred layers:
 
+- content index or overview note that helps a reader enter the region
 - raw note or raw paper
 - local digest that makes one object easier to parse
 - cluster digest or overview note that explains how multiple objects fit together
@@ -103,12 +104,14 @@ Start with the smallest scope that can produce a durable improvement. Escalate f
 
 1. Confirm that `sleep` was explicitly requested and set a bounded scope.
 2. Read the current `sleep` state if it exists to avoid blind reprocessing.
-3. Select one or a few high-leverage targets.
-4. Decide whether each target should be handled locally or as a cluster.
-5. Read the relevant notes and paper notes first. Read raw PDFs only when the note layer is insufficient.
-6. Create or refresh the smallest durable artifact that would make the target materially easier to understand later.
-7. Add only high-confidence links or relationship cues.
-8. Update `System/State/sleep/` so a later run can tell what changed, what was deferred, and what remains stale.
+3. Read `Notes/Index.md` when it exists and the pass would benefit from the current top-level map of the note layer.
+4. Select one or a few high-leverage targets.
+5. Decide whether each target should be handled locally or as a cluster.
+6. Read the relevant notes and paper notes first. Read raw PDFs only when the note layer is insufficient.
+7. Create or refresh the smallest durable artifact that would make the target materially easier to understand later.
+8. Update `Notes/Index.md` only if the pass created or materially improved a durable entry point into the knowledge layer.
+9. Add only high-confidence links or relationship cues.
+10. Update `System/State/sleep/` so a later run can tell what changed, what was deferred, and what remains stale.
 
 Use the `obsidian-cli` skill for note-aware retrieval or path-sensitive note operations when practical, but `sleep` is not primarily a CLI skill.
 
@@ -120,6 +123,7 @@ Use the `obsidian-cli` skill for note-aware retrieval or path-sensitive note ope
 - add summaries or digests
 - add selective high-confidence links
 - create overview notes where useful
+- refresh the content index when navigation materially improved
 - refresh stale digest layers when the underlying material changed
 
 `sleep` must not:

@@ -42,6 +42,7 @@ Keep the visible structure simple by default.
 
 - Prefer a small number of stable folders.
 - Let semantic structure emerge inside notes, metadata, and links.
+- Prefer curated index and overview notes before expanding folder hierarchy.
 - Add more explicit organization only when there is enough real content to justify it.
 
 ## Incremental Organization
@@ -57,5 +58,6 @@ Organization should happen gradually and non-destructively.
 Semantic structure should primarily live in notes, local metadata, and links rather than deep folder trees.
 
 - Notes are the main interface for interpretation and synthesis.
+- Curated index notes in `Notes/` may provide top-level navigation into the knowledge layer.
 - Links should express relationships between ideas, sources, and paper notes.
 - Folders provide coarse placement, not the full ontology of the vault.

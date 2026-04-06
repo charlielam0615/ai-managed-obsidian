@@ -80,6 +80,8 @@ Useful contents include:
 
 Do not require a heavy schema.
 
+Update `Notes/Index.md` only when the paper note clearly becomes a durable entry point, such as a key paper note or a topic anchor. Do not add every ingested paper to the index.
+
 ## When Not To Act
 
 Defer or narrow the operation when:

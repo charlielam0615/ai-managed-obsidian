@@ -1,0 +1,111 @@
+# Content Index
+
+## Purpose
+
+The content index is the vault's curated navigation surface.
+
+Its job is to help humans and agents find the most important entry points in the knowledge layer quickly, without scanning the whole vault or introducing a hidden registry.
+
+## Canonical Location
+
+The primary content index lives at `Notes/Index.md`.
+
+At small scale, prefer a single index note. Only introduce a dedicated `Notes/Indexes/` area if the single-note index becomes noisy enough that a split clearly improves navigation.
+
+## What The Index Is
+
+The index is:
+
+- a durable note in the knowledge layer
+- a selective list of high-value entry points
+- a starting surface for broad queries and exploration
+- a progressive-disclosure aid for future humans and agents
+
+The index is not:
+
+- a complete catalog of every note
+- a substitute for links, local metadata, or note content
+- an operational log
+- a hidden database or control plane
+
+## What Belongs In The Index
+
+Include only notes or pages that materially improve navigation, such as:
+
+- overview notes
+- topic hubs
+- key paper notes
+- synthesis notes
+- durable question notes
+- other stable entry points that help a future reader decide where to go next
+
+Each entry should stay lightweight:
+
+- one link
+- one short reason the entry matters
+
+## What Does Not Belong
+
+Do not use the index for:
+
+- raw intake material in `Inbox/`
+- routine one-off notes that are not useful entry points
+- exhaustive listings of every note in a folder
+- operational history that belongs in `System/State/`
+- speculative categories created only to make the vault look organized
+
+## Read Protocol
+
+Agents should read `Notes/Index.md` early when the task is broad, exploratory, or requires understanding the shape of the note layer.
+
+Typical cases:
+
+- broad vault questions
+- exploratory search
+- synthesis work
+- bounded maintenance passes such as `sleep`
+
+The index is a starting point, not a complete map. Agents should still expand through note links, backlinks, related summaries, and direct search when needed.
+
+## Update Protocol
+
+Agents should update the index only when navigation materially changes.
+
+Good reasons to update it include:
+
+- a new overview or synthesis note becomes a real entry point
+- a paper note becomes central enough to revisit repeatedly
+- a durable query result is filed back into `Notes/`
+- a `sleep` pass creates a better top-level entry into a dense note region
+
+Do not update the index for every routine note edit or every new note.
+
+## Maintenance Rules
+
+Keep the index:
+
+- short enough to read in one pass
+- organized by function rather than deep taxonomy
+- stable in wording unless an entry's role actually changed
+- selective enough that every entry earns its place
+
+Prefer replacing weak or stale entries over endlessly appending.
+
+## Scaling Rule
+
+If the index grows beyond a comfortable single-page navigation note, split it conservatively into a small number of functional index notes such as:
+
+- `Notes/Indexes/Topics.md`
+- `Notes/Indexes/Papers.md`
+- `Notes/Indexes/Questions.md`
+
+Do not treat this as permission to broadly subdivide `Notes/` itself. Prefer navigation notes before folder reorganization.
+
+## Verification
+
+After updating the index:
+
+- confirm each listed entry still exists
+- confirm each description still matches the linked page
+- confirm the result is still readable in one pass
+- confirm the update improved navigation rather than merely adding more text
