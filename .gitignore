@@ -1,2 +1,16 @@
 .DS_Store
+.gitignore
+
+# Agent and harness runtime/state
+.agents/
 .omx/
+
+# Vault/app configuration rather than note content
+.obsidian/
+
+# Harness guidance and system contract files
+AGENTS.md
+CLAUDE.md
+README.md
+Inbox/
+System/
