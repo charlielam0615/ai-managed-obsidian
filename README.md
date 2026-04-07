@@ -132,6 +132,8 @@ Notes may be written in multiple languages. For reliable agent retrieval, non-En
 
 The intended operating model is that agents translate non-English queries into English for retrieval, search the vault through English metadata and normal note structure, and then answer in the user's language when appropriate.
 
+Concrete examples for processed-note metadata live in [processed-note-metadata-examples.md](System/Rules/processed-note-metadata-examples.md).
+
 ## Status
 
 This repo currently defines the vault contract, core rules, and first-pass skills.
@@ -326,6 +328,8 @@ It is intentionally not the semantic layer.
 
 Knowledge, links, summaries, and integration outputs belong in `Notes/`, not in hidden runtime state.
 
+Concrete queue-record examples live in [signal-examples.md](System/Skills/sleep/references/signal-examples.md).
+
 ## Recommended Git Workflow
 
 - keep commits small and coherent
@@ -340,6 +344,29 @@ The repository includes rule files that codify this more precisely under `System
 The central idea in this repo is that future comprehension should get cheaper over time.
 
 The `sleep` skill is the bounded manual integration pass that makes that happen. It creates progressive-disclosure layers, strengthens links, and improves navigation in the vault itself so later humans and agents can understand dense material faster without relying on hidden memory.
+
+## Example Workflow
+
+One realistic path through the system looks like this:
+
+1. A rough note starts in `Inbox/`.
+2. `inbox-triage` decides it is ready for the knowledge layer.
+3. The note gets the minimum processed-note metadata:
+   - `lang`
+   - an English `summary`
+   - and, if non-English, English `aliases` plus English `search_terms`
+4. The note moves into `Notes/`.
+5. If no topic hub or better navigation surface exists yet, the note enters the temporary bootstrap section in `Notes/Index.md`.
+6. If later integration work remains, the workflow writes a queue signal under `System/State/sleep/queue/`.
+7. A later `sleep` pass reads those signals, adds high-confidence links, improves metadata or navigation, and promotes or prunes bootstrap visibility when a better navigation surface exists.
+8. A later query retrieves the note through the index, links, metadata, and English retrieval bridge.
+
+For the detailed rules behind this flow, see:
+
+- [note-processing-lifecycle.md](System/Rules/note-processing-lifecycle.md)
+- [processed-note-metadata.md](System/Rules/processed-note-metadata.md)
+- [content-index.md](System/Rules/content-index.md)
+- [signal-writing.md](System/Skills/sleep/references/signal-writing.md)
 
 ## References
 

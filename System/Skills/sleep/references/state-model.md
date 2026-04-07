@@ -62,7 +62,7 @@ System/State/sleep/
 
 You do not need this exact directory structure if a later implementation finds a cleaner equivalent, but the model should preserve these responsibilities.
 
-Read `signal-writing.md` for the canonical queue write protocol.
+Read `signal-writing.md` for the canonical queue write protocol and `signal-examples.md` for concrete example records.
 
 ## Targets
 

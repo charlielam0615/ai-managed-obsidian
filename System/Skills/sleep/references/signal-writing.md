@@ -4,6 +4,8 @@ This reference defines how workflows should record future sleep work into `Syste
 
 The goal is to make future integration work explicit, append-only, and reviewable without turning state into the semantic layer.
 
+See `signal-examples.md` for concrete example records.
+
 ## Canonical Location
 
 Write future sleep signals under:

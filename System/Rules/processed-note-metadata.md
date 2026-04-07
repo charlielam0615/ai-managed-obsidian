@@ -6,6 +6,8 @@ This rule defines the minimum metadata a note should have before it is treated a
 
 The goal is future retrieval, not heavy schema.
 
+See `System/Rules/processed-note-metadata-examples.md` for concrete note examples.
+
 Minimum metadata should make a note:
 
 - understandable at a glance
