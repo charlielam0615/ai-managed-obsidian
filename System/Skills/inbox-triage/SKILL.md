@@ -52,7 +52,11 @@ Do not turn triage into full synthesis, taxonomy building, or broad cleanup.
 - Do not create new agent work product in `Inbox/` unless explicitly simulating human capture.
 - Add the minimum metadata required by `System/Rules/processed-note-metadata.md` before promoting a note into `Notes/`.
 - When promoting a non-English processed note into `Notes/`, also add the extra English retrieval bridge required by the language rule.
-- Confirm the note is incorporated into the relevant index, hub, or navigation surface before leaving `Inbox/`.
+- Confirm the note is incorporated into the relevant navigation surface before leaving `Inbox/`, using this fallback order:
+  - existing topic hub or overview note
+  - existing relevant curated index section
+  - bootstrap section in `Notes/Index.md`
+- Do not invent a new topic hub prematurely just to satisfy the placement rule.
 - If follow-up integration work remains after promotion, record one or more queue signals using `System/Skills/sleep/references/signal-writing.md`.
 
 ## When Not To Act

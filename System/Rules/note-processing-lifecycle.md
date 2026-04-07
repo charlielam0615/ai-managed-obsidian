@@ -21,6 +21,12 @@ Processed enough means:
 
 See `System/Rules/processed-note-metadata.md` for the minimum metadata contract.
 
+Fallback order for navigation integration:
+
+1. existing topic hub or overview note
+2. existing relevant curated index section
+3. bootstrap section in `Notes/Index.md`
+
 ## Inbox
 
 `Inbox/` is the intake and pre-integration area.
@@ -70,6 +76,8 @@ A note should leave `Inbox/` only after:
 Do not require complete synthesis before moving a note into `Notes/`.
 
 Do require enough processing that the note can be found, understood, and integrated later without returning it to intake status.
+
+If no topic hub or other better navigation surface exists yet, the bootstrap section in `Notes/Index.md` is the default fallback.
 
 ## State Relationship
 

@@ -4,11 +4,19 @@ This is the vault's curated navigation note.
 
 It is intentionally selective: it should point to processed entry points in the knowledge layer, not try to list every note in the vault.
 
+It may also contain a temporary bootstrap section for newly processed notes that do not yet have a better navigation surface.
+
 ## Start Here
 
 - [README](../README.md) - repository overview and current vault setup
 - [Operating Model](../System/Rules/operating-model.md) - core structure and source-of-truth rules
 - [Content Index Rule](../System/Rules/content-index.md) - protocol for how this index should be maintained
+
+## Bootstrap / Newly Processed
+
+Temporary fallback section for newly processed notes that do not yet have a better topic hub, overview, or other navigation surface.
+
+Keep this section bounded and prunable during `sleep`.
 
 ## Core Topics
 

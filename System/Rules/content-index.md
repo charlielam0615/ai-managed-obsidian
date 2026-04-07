@@ -12,6 +12,11 @@ The primary content index lives at `Notes/Index.md`.
 
 At small scale, prefer a single index note. Only introduce a dedicated `Notes/Indexes/` area if the single-note index becomes noisy enough that a split clearly improves navigation.
 
+`Notes/Index.md` may contain both:
+
+- curated long-term entry sections
+- one temporary bootstrap section for newly processed notes that do not yet have a better navigation surface
+
 ## What The Index Is
 
 The index is:
@@ -27,6 +32,8 @@ The index is not:
 - a substitute for links, local metadata, or note content
 - an operational log
 - a hidden database or control plane
+
+The bootstrap section is the only narrow exception to the curated-only posture, and it exists to solve cold-start navigation without turning the whole index into a permanent catalog.
 
 ## What Belongs In The Index
 
@@ -45,6 +52,25 @@ Each entry should stay lightweight:
 - one short reason the entry matters
 
 Index descriptions should remain in English by default, even when the linked note is not in English.
+
+## Bootstrap Section
+
+`Notes/Index.md` may contain one temporary bootstrap section for newly processed notes.
+
+Use it when:
+
+- a note has just left `Inbox/`
+- no relevant topic hub, overview, or other navigation surface exists yet
+- the note still needs top-level discoverability until better navigation is built
+
+Bootstrap behavior:
+
+- include all newly processed notes that lack a better navigation surface
+- keep the section count-limited rather than exhaustive
+- treat the section as explicitly prunable during `sleep`
+- do not treat inclusion there as proof that the note is a long-term entry point
+
+For the first version, cap the bootstrap section to a small recent set of at most 15 notes.
 
 ## What Does Not Belong
 
@@ -84,6 +110,8 @@ Do not update the index for every routine note edit or every new note.
 
 Important non-English notes may still appear when they are real entry points. Prefer English descriptions that help agents and humans retrieve them from the shared English navigation surface.
 
+When no better navigation surface exists yet, newly processed notes may temporarily enter the bootstrap section even if they are not yet true long-term entry points.
+
 ## Maintenance Rules
 
 Keep the index:
@@ -94,6 +122,12 @@ Keep the index:
 - selective enough that every entry earns its place
 
 Prefer replacing weak or stale entries over endlessly appending.
+
+`sleep` should prune or promote bootstrap entries over time:
+
+- promote them into curated sections when they become real entry points
+- remove them once a better topic hub, overview, or local navigation surface exists
+- keep the bootstrap section within the fixed count cap
 
 ## Scaling Rule
 

@@ -129,6 +129,7 @@ Use the `obsidian-cli` skill for note-aware retrieval or path-sensitive note ope
 - refresh the content index when navigation materially improved
 - refresh stale digest layers when the underlying material changed
 - strengthen metadata and navigation surfaces
+- prune or promote bootstrap entries in `Notes/Index.md`
 
 `sleep` must not:
 
@@ -164,6 +165,8 @@ Repeated runs should be incremental.
 - revisit clusters when member notes changed materially
 - avoid rewording stable digests without a real need
 - consume queued future-work signals from note-affecting interactions
+- promote bootstrap entries into better navigation surfaces when justified
+- remove bootstrap entries once stronger navigation exists
 
 The goal is progressive improvement, not churn.
 
