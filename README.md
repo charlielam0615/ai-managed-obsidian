@@ -177,18 +177,15 @@ Use this when you want to turn the repository into your own working vault quickl
    cd my-vault
    ```
 
-2. Install the local skills for Codex by symlinking the canonical skill folders into `.agents/skills/`.
+2. Ask your agent to install the local project skills.
 
-   ```sh
-   mkdir -p .agents/skills
-   for dir in System/Skills/*; do
-     [ -d "$dir" ] || continue
-     name="$(basename "$dir")"
-     ln -sfn "../../$dir" ".agents/skills/$name"
-   done
+   This works for both Codex and Claude Code. A simple prompt is:
+
+   ```text
+   Install this repo's local skills so they are available in this project.
    ```
 
-   Restart Codex if needed, then verify with `/skills`.
+   For Codex, the expected result is that the project skills become discoverable from the repo. For Claude Code, the expected result is that project memory and any requested project commands point at the workflows under `System/Skills/`.
 
 3. Re-initialize Git so your new repository tracks your notes and changes instead of this starter history.
 
@@ -200,10 +197,10 @@ Use this when you want to turn the repository into your own working vault quickl
    ```
 
 4. Start adding notes.
-   Put rough captures, clips, and drafts in `Inbox/`. Put processed notes that are ready for retrieval in `Notes/`.
+   Put rough captures, clips, and drafts in `Inbox/`.
 
-5. Create your first digest or processed note.
-   Take one rough note from `Inbox/`, add the minimum metadata (`lang` and an English `summary`), and move it into `Notes/`. If the note is non-English, also add English `aliases` and `search_terms`.
+5. Ask the agent to digest your inbox.
+   Do not manually add metadata or move notes into `Notes/`. The intended workflow is to put note-like material in `Inbox/` and let `$inbox-triage` process it into the knowledge layer.
 
 6. Run a bounded `sleep` pass when you want the vault to become easier to navigate.
    Use `sleep` to add links, refresh summaries, improve local overviews, and strengthen the index without broad reorganization.
