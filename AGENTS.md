@@ -36,6 +36,7 @@ Do not improvise a fresh workflow when an existing skill already matches the tas
 If a task affects vault structure or navigation, also read:
 
 - `System/Rules/content-index.md`
+- `System/Rules/language-and-cross-language-retrieval.md`
 - `System/Rules/safe-change-policy.md`
 - `System/Rules/obsidian-cli-first.md`
 
@@ -49,6 +50,8 @@ Agents should:
 - treat it as a navigation surface, not as proof that nothing else exists
 - update it only when navigation materially improves
 
+For multilingual work, agents should keep the shared retrieval surface in English and rely on English metadata on non-English durable notes.
+
 Do not:
 
 - turn it into a complete catalog
@@ -59,7 +62,7 @@ Do not:
 
 When a task matches one of the workflows above, the final report should include enough evidence to show the workflow was followed.
 
-- Broad vault questions: say whether `Notes/Index.md` was consulted, which notes were the main anchors, and whether raw PDFs were needed.
+- Broad vault questions: say whether `Notes/Index.md` was consulted, whether the query was translated into English for retrieval, which notes were the main anchors, and whether raw PDFs were needed.
 - Inbox or paper ingestion: report the final note or PDF destination, duplicate-check outcome when relevant, and whether the index changed.
 - Sleep or maintenance passes: report the scope, durable artifacts created or refreshed, and whether the index changed.
 - Path-sensitive note edits: say whether Obsidian-aware operations were used and, if not, why a direct edit was safe.

@@ -50,6 +50,7 @@ Do not turn triage into full synthesis, taxonomy building, or broad cleanup.
 - Move durable note material to `Notes/` only when it can function as a knowledge object.
 - Route paper PDFs through the `paper-ingestion` skill before treating them as canonical library items.
 - Do not create new agent work product in `Inbox/` unless explicitly simulating human capture.
+- When promoting a non-English durable note into `Notes/`, add the minimum English retrieval bridge required by the language rule.
 
 ## When Not To Act
 

@@ -29,6 +29,7 @@ For structure or navigation changes, also read:
 
 - `System/Rules/operating-model.md`
 - `System/Rules/content-index.md`
+- `System/Rules/language-and-cross-language-retrieval.md`
 - `System/Rules/safe-change-policy.md`
 - `System/Rules/obsidian-cli-first.md`
 
@@ -39,12 +40,13 @@ For structure or navigation changes, also read:
 - Read it early for broad or exploratory note work.
 - Use it as a starting surface, not as a complete map.
 - Update it only when navigation materially improves.
+- For multilingual work, translate broad retrieval into English and rely on English metadata on non-English durable notes.
 
 ## Completion Evidence
 
 For skill-shaped tasks, include brief evidence in the final response:
 
-- broad questions: whether the index was consulted, main note anchors, and whether PDFs were needed
+- broad questions: whether the index was consulted, whether the query was translated into English for retrieval, main note anchors, and whether PDFs were needed
 - ingestion tasks: final destinations, duplicate outcome when relevant, and whether the index changed
 - maintenance passes: scope, durable artifacts added or refreshed, and whether the index changed
 - path-sensitive edits: whether Obsidian-aware operations were used, or why a direct edit was safe

@@ -80,6 +80,13 @@ Useful contents include:
 
 Do not require a heavy schema.
 
+If the resulting paper note is primarily non-English, include the minimum English retrieval bridge:
+
+- `lang`
+- English `aliases`
+- English `search_terms`
+- a short English `summary`
+
 Update `Notes/Index.md` only when the paper note clearly becomes a durable entry point, such as a key paper note or a topic anchor. Do not add every ingested paper to the index.
 
 ## When Not To Act

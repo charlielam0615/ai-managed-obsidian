@@ -56,6 +56,7 @@ System/
 - `content-index`
 - `operating-model`
 - `inbox-and-placement`
+- `language-and-cross-language-retrieval`
 - `library-and-papers`
 - `linking-and-naming`
 - `obsidian-cli-first`
@@ -83,9 +84,23 @@ These are packaged as Agent Skills directories with `SKILL.md` entrypoints.
 - Minimal folder structure by default
 - Progressive disclosure instead of deep taxonomy
 - Durable semantics in notes, links, and local metadata rather than hidden systems
+- English-centric retrieval over multilingual note bodies
 - Bounded, reviewable changes
 - Obsidian-aware operations when path or note identity matters
 - Lean operational state, separate from the semantic layer
+
+## Language Support
+
+System-facing files stay in English.
+
+Notes may be written in multiple languages. For reliable agent retrieval, non-English durable notes should carry a lightweight English bridge:
+
+- `lang`
+- English `aliases`
+- English `search_terms`
+- a short English `summary`
+
+The intended operating model is that agents translate non-English queries into English for retrieval, search the vault through English metadata and normal note structure, and then answer in the user's language when appropriate.
 
 ## Status
 

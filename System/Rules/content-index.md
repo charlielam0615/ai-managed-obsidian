@@ -44,6 +44,8 @@ Each entry should stay lightweight:
 - one link
 - one short reason the entry matters
 
+Index descriptions should remain in English by default, even when the linked note is not in English.
+
 ## What Does Not Belong
 
 Do not use the index for:
@@ -79,6 +81,8 @@ Good reasons to update it include:
 - a `sleep` pass creates a better top-level entry into a dense note region
 
 Do not update the index for every routine note edit or every new note.
+
+Important non-English notes may still appear when they are real entry points. Prefer English descriptions that help agents and humans retrieve them from the shared English navigation surface.
 
 ## Maintenance Rules
 

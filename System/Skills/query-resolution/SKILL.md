@@ -12,6 +12,7 @@ Use this skill when a user asks a question that should be answered from the cont
 ## Inputs
 
 - the user question
+- English retrieval metadata on non-English durable notes when available
 - `Notes/Index.md` when it exists
 - access to vault search and note reading
 - access to related paper notes and, when necessary, canonical PDFs
@@ -26,12 +27,13 @@ A grounded answer that:
 
 ## Procedure
 
-1. Read `Notes/Index.md` first when it exists and the query is broad enough to benefit from a top-level map.
-2. Search for directly relevant notes, paper notes, and summaries.
-3. Read the strongest initial hits.
-4. Expand into linked notes, backlinks, nearby summaries, and associated paper notes when useful.
-5. Consult raw PDFs only when the note layer is insufficient or the question requires source verification.
-6. Answer from the strongest available evidence in the vault.
+1. If the user asks in a non-English language, translate the retrieval query into English before broad search.
+2. Read `Notes/Index.md` first when it exists and the query is broad enough to benefit from a top-level map.
+3. Search for directly relevant notes, paper notes, and summaries in English retrieval space.
+4. Read the strongest initial hits.
+5. Expand into English aliases, English `search_terms`, English summaries, linked notes, backlinks, and associated paper notes when useful.
+6. Consult raw PDFs only when the note layer is insufficient or the question requires source verification.
+7. Answer from the strongest available evidence in the vault.
 
 Use the `obsidian-cli` skill when you need concrete CLI targeting, retrieval, or fallback behavior.
 
@@ -51,6 +53,7 @@ Raw PDFs are a fallback source, not the default starting point.
 Expand conservatively:
 
 - use the index as a navigation surface, not as proof that nothing else exists
+- do not stop after failing to match the original query language; continue through English retrieval metadata
 - read explicit links mentioned in the anchor note
 - use outgoing links and backlinks when they materially improve retrieval
 - inspect nearby summary or synthesis notes
@@ -74,6 +77,7 @@ Before finalizing:
 
 - confirm the cited note or source actually supports the answer
 - confirm the answer matches the current vault contents
+- confirm cross-language misses were handled through English retrieval metadata when relevant
 - avoid mixing unsupported outside knowledge into a vault-grounded response
 
 ## Related Skills
