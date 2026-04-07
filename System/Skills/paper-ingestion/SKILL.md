@@ -91,6 +91,8 @@ If the resulting paper note is primarily non-English, include the minimum Englis
 
 Update `Notes/Index.md` only when the paper note clearly becomes a processed entry point, such as a key paper note or a topic anchor. Do not add every ingested paper to the index.
 
+If the new or updated paper note likely needs later linking, overview integration, or broader sleep digestion, record one or more queue signals using `System/Skills/sleep/references/signal-writing.md`.
+
 ## When Not To Act
 
 Defer or narrow the operation when:

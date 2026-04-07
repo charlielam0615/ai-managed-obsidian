@@ -78,7 +78,7 @@ Before finalizing:
 - confirm the cited note or source actually supports the answer
 - confirm the answer matches the current vault contents
 - confirm cross-language misses were handled through English retrieval metadata when relevant
-- note whether the query or deep read created future sleep signals that should be recorded operationally
+- if the query or deep read surfaced likely future integration work, record one or more queue signals using `System/Skills/sleep/references/signal-writing.md`
 - avoid mixing unsupported outside knowledge into a vault-grounded response
 
 ## Related Skills

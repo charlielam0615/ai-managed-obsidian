@@ -53,6 +53,7 @@ Do not turn triage into full synthesis, taxonomy building, or broad cleanup.
 - Add the minimum metadata required by `System/Rules/processed-note-metadata.md` before promoting a note into `Notes/`.
 - When promoting a non-English processed note into `Notes/`, also add the extra English retrieval bridge required by the language rule.
 - Confirm the note is incorporated into the relevant index, hub, or navigation surface before leaving `Inbox/`.
+- If follow-up integration work remains after promotion, record one or more queue signals using `System/Skills/sleep/references/signal-writing.md`.
 
 ## When Not To Act
 

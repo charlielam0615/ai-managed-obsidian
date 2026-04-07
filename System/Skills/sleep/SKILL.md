@@ -106,7 +106,7 @@ Start with the smallest scope that can produce a meaningful integration improvem
 1. Confirm that `sleep` was explicitly requested and set a bounded scope.
 2. Read the current `sleep` state if it exists to avoid blind reprocessing.
 3. Read `Notes/Index.md` when it exists and the pass would benefit from the current top-level map of the note layer.
-4. Select one or a few high-leverage targets.
+4. Select one or a few high-leverage targets, considering queued future-work signals alongside freshness, centrality, and user scope.
 5. Decide whether each target should be handled locally or as a cluster.
 6. Read the relevant notes and paper notes first. Read raw PDFs only when the note layer is insufficient.
 7. Create or refresh the smallest integration artifact that would make the target materially easier to understand later.
@@ -114,6 +114,7 @@ Start with the smallest scope that can produce a meaningful integration improvem
 9. Update `Notes/Index.md` only if the pass created or materially improved a processed entry point into the knowledge layer.
 10. Update metadata, hubs, or overview notes when they materially improve integration quality.
 11. Update `System/State/sleep/` so a later run can tell what changed, what was deferred, what should be revisited next, and which note-affecting interactions created future work.
+12. If the pass discovers additional future work that it intentionally does not complete now, write one or more queue signals using `references/signal-writing.md`.
 
 Use the `obsidian-cli` skill for note-aware retrieval or path-sensitive note operations when practical, but `sleep` is not primarily a CLI skill.
 
@@ -195,7 +196,7 @@ State is used to:
 
 State must not contain the actual summaries, synthesis, or relationships that belong in `Notes/`.
 
-Read `references/state-model.md` before implementing or modifying the state layer.
+Read `references/state-model.md` and `references/signal-writing.md` before implementing or modifying the state layer.
 
 ## Relationship To Other Skills
 
@@ -217,4 +218,5 @@ Before ending a `sleep` pass:
 ## Supporting Files
 
 - `references/state-model.md`
+- `references/signal-writing.md`
 - `references/artifact-patterns.md`

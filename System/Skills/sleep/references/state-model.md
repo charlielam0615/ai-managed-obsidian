@@ -62,6 +62,8 @@ System/State/sleep/
 
 You do not need this exact directory structure if a later implementation finds a cleaner equivalent, but the model should preserve these responsibilities.
 
+Read `signal-writing.md` for the canonical queue write protocol.
+
 ## Targets
 
 Purpose:
@@ -128,6 +130,8 @@ Purpose:
 
 This can be lightweight. It does not need to be a job scheduler.
 
+Queue entries should be written as one JSON file per signal under `System/State/sleep/queue/`.
+
 Useful contents:
 
 - target id
@@ -141,6 +145,7 @@ Useful contents:
 - source such as `user`, `agent`, `query`, `edit`, or `move`
 - follow-up kind such as `linking`, `metadata`, `index`, `overview`, or `revisit`
 - optional context note or seed query
+- optional reason
 
 ## Runs
 
@@ -196,6 +201,7 @@ Useful fields:
 - follow-up kind
 - optional context note
 - optional seed query
+- optional reason
 
 ## History
 
@@ -240,6 +246,12 @@ Track:
 - optional retry hint
 
 A deferral is an operational fact, not a semantic conclusion.
+
+## Resolution
+
+Signals may be resolved, deferred, or superseded by later runs.
+
+Record that outcome in run records or history entries rather than turning queue files into mutable state logs.
 
 ## Rebuildability
 
