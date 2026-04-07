@@ -67,7 +67,7 @@ The inbox note should usually include:
 - a short note about how the content was obtained when the extraction path was unusual
 - the extracted article body
 
-Do not add durable synthesis, taxonomy, or cross-note linking during the capture step unless the user explicitly asks for digestion too.
+Do not add integrated synthesis, taxonomy, or cross-note linking during the capture step unless the user explicitly asks for digestion too.
 
 ## Obsidian And File Operations
 

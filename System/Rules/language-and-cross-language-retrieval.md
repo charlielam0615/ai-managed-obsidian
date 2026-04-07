@@ -26,16 +26,14 @@ Notes may remain in their natural primary language.
 - Do not treat multilingual support as a requirement to rewrite notes into English.
 - Use the smallest retrieval bridge that makes the note discoverable from English-space search.
 
-## Required English Metadata For Non-English Durable Notes
+## Required English Metadata For Non-English Processed Notes
 
-When a non-English note becomes a durable note in `Notes/`, it should include English discovery metadata.
+When a non-English note becomes a processed note in `Notes/`, it should include the baseline metadata from `System/Rules/processed-note-metadata.md` plus the extra English discovery metadata below.
 
-Minimum fields:
+Additional required fields:
 
-- `lang`: the note's primary language code
 - `aliases`: English alternate names or phrasings that improve recall
 - `search_terms`: English retrieval vocabulary for the note's concepts
-- `summary`: a short English summary
 
 This metadata exists for cross-language retrieval. It is not a requirement to duplicate the note's full contents in English.
 
@@ -86,19 +84,19 @@ This is a personal knowledge vault.
 
 ## Intake And Promotion
 
-Rough or temporary material in `Inbox/` does not need full multilingual metadata.
+Rough or not-yet-processed material in `Inbox/` does not need full multilingual metadata.
 
 Apply the English retrieval bridge when:
 
 - a note is promoted into `Notes/`
-- a durable non-English note is materially updated
+- a processed non-English note is materially updated
 - a note becomes important enough to be a real retrieval target
 
 ## Verification
 
-When a non-English durable note is created or normalized:
+When a non-English processed note is created or normalized:
 
 - confirm `lang` is present
+- confirm the required English `summary` is present
 - confirm English aliases improve recall
 - confirm English `search_terms` describe the note's concepts
-- confirm the English summary is short and useful for retrieval

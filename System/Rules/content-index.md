@@ -16,7 +16,7 @@ At small scale, prefer a single index note. Only introduce a dedicated `Notes/In
 
 The index is:
 
-- a durable note in the knowledge layer
+- a processed note in the knowledge layer
 - a selective list of high-value entry points
 - a starting surface for broad queries and exploration
 - a progressive-disclosure aid for future humans and agents
@@ -36,7 +36,7 @@ Include only notes or pages that materially improve navigation, such as:
 - topic hubs
 - key paper notes
 - synthesis notes
-- durable question notes
+- processed question notes that function as entry points
 - other stable entry points that help a future reader decide where to go next
 
 Each entry should stay lightweight:
@@ -77,7 +77,7 @@ Good reasons to update it include:
 
 - a new overview or synthesis note becomes a real entry point
 - a paper note becomes central enough to revisit repeatedly
-- a durable query result is filed back into `Notes/`
+- a processed query result is filed back into `Notes/`
 - a `sleep` pass creates a better top-level entry into a dense note region
 
 Do not update the index for every routine note edit or every new note.

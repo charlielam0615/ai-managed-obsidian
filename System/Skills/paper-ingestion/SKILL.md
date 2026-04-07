@@ -80,6 +80,8 @@ Useful contents include:
 
 Do not require a heavy schema.
 
+The resulting paper note should still satisfy the minimum processed-note metadata contract in `System/Rules/processed-note-metadata.md`.
+
 If the resulting paper note is primarily non-English, include the minimum English retrieval bridge:
 
 - `lang`
@@ -87,7 +89,7 @@ If the resulting paper note is primarily non-English, include the minimum Englis
 - English `search_terms`
 - a short English `summary`
 
-Update `Notes/Index.md` only when the paper note clearly becomes a durable entry point, such as a key paper note or a topic anchor. Do not add every ingested paper to the index.
+Update `Notes/Index.md` only when the paper note clearly becomes a processed entry point, such as a key paper note or a topic anchor. Do not add every ingested paper to the index.
 
 ## When Not To Act
 

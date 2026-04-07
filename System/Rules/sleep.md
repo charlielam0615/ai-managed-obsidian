@@ -10,7 +10,7 @@ It exists to help agents improve coherence over time without turning the vault i
 
 At a policy level, sleep may:
 
-- consolidate scattered understanding into durable notes
+- consolidate scattered understanding into better-integrated notes
 - create or improve semantic scaffolding in `Notes/`
 - connect related notes and sources
 - process previously captured material incrementally
@@ -20,7 +20,7 @@ At a policy level, sleep may:
 Sleep is a bounded consolidation workflow.
 
 - It should work in small passes.
-- It should focus on durable improvements rather than global rewrites.
+- It should focus on integration quality rather than global rewrites.
 - It should leave the vault more coherent than it found it.
 
 ## Non-Destructive Requirement
@@ -34,10 +34,10 @@ Sleep must be incremental and non-destructive.
 
 ## Knowledge Layer Target
 
-Sleep should create durable semantic scaffolding in the knowledge layer.
+Sleep should create and strengthen integrated semantic scaffolding in the knowledge layer.
 
 - The main output belongs in `Notes/`.
-- The goal is better navigability, better synthesis, and better future digestion.
+- The goal is better navigability, better synthesis, stronger linking, and better future digestion.
 - `System/` should define policy, not absorb knowledge content.
 
 ## Deferred Implementation Detail

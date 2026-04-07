@@ -5,7 +5,7 @@ A file-native, Git-friendly starting point for building an AI-native personal kn
 This repository is opinionated about a few things:
 
 - the vault is the source of truth
-- durable understanding should live in plain files
+- knowledge should live in plain files
 - organization should be incremental and non-destructive
 - `Inbox/` is the only human intake point
 - `Notes/` is the semantic knowledge layer
@@ -16,7 +16,7 @@ The repo currently focuses on the operating contract:
 
 - `AGENTS.md` defines top-level agent routing and completion-evidence expectations
 - `CLAUDE.md` defines project memory for Claude Code
-- `System/Rules/` defines durable policy
+- `System/Rules/` defines the operating policy
 - `System/Skills/` defines reusable operational workflows for agents
 
 It is designed to work well under cold-start conditions, before embeddings, registries, or complex orchestration layers exist.
@@ -59,6 +59,8 @@ System/
 - `language-and-cross-language-retrieval`
 - `library-and-papers`
 - `linking-and-naming`
+- `note-processing-lifecycle`
+- `processed-note-metadata`
 - `notes-topic-folders`
 - `obsidian-cli-first`
 - `sleep`
@@ -95,11 +97,33 @@ Notable addition:
 - Obsidian-aware operations when path or note identity matters
 - Lean operational state, separate from the semantic layer
 
+## Note Lifecycle
+
+The distinction between `Inbox/` and `Notes/` is processing status, not permanence.
+
+- `Inbox/` contains notes and captures that are not yet fully processed.
+- `Notes/` contains notes that are processed enough to participate in the knowledge layer.
+
+For a note to leave `Inbox/` and enter `Notes/`, it should:
+
+- be in the correct location
+- have the required metadata
+- be incorporated into the relevant index, hub, or navigation surface
+
+Minimum metadata for processed notes is intentionally small:
+
+- `lang`
+- a short English `summary`
+
+For non-English processed notes, also add English `aliases` and English `search_terms`.
+
+Notes in `Notes/` remain open to future edits, linking, metadata improvement, relocation, and synthesis.
+
 ## Language Support
 
 System-facing files stay in English.
 
-Notes may be written in multiple languages. For reliable agent retrieval, non-English durable notes should carry a lightweight English bridge:
+Notes may be written in multiple languages. For reliable agent retrieval, non-English processed notes should carry a lightweight English bridge:
 
 - `lang`
 - English `aliases`
@@ -294,12 +318,13 @@ That state is intended to hold things like:
 
 - per-target freshness
 - cluster tracking
+- future sleep signals from note-affecting interactions
 - run checkpoints
 - audit history
 
 It is intentionally not the semantic layer.
 
-Durable understanding belongs in `Notes/`, not in hidden runtime state.
+Knowledge, links, summaries, and integration outputs belong in `Notes/`, not in hidden runtime state.
 
 ## Recommended Git Workflow
 
@@ -314,7 +339,7 @@ The repository includes rule files that codify this more precisely under `System
 
 The central idea in this repo is that future comprehension should get cheaper over time.
 
-The `sleep` skill is the bounded manual consolidation pass that makes that happen. It creates progressive-disclosure layers in the vault itself so later humans and agents can understand dense material faster without relying on hidden memory.
+The `sleep` skill is the bounded manual integration pass that makes that happen. It creates progressive-disclosure layers, strengthens links, and improves navigation in the vault itself so later humans and agents can understand dense material faster without relying on hidden memory.
 
 ## References
 

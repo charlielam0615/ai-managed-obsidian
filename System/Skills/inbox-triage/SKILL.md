@@ -1,6 +1,6 @@
 ---
 name: inbox-triage
-description: Use this skill when processing material in Inbox/, deciding whether an item is a durable note, a paper candidate, or still unresolved, and relocating it conservatively without forcing classification.
+description: Use this skill when processing material in Inbox/, deciding whether an item is ready for the knowledge layer, a paper candidate, or still unresolved, and relocating it conservatively without forcing classification.
 ---
 
 # Inbox Triage
@@ -19,7 +19,7 @@ Use this skill when new human-created material has landed in `Inbox/` and needs 
 
 One of:
 
-- a durable note moved into `Notes/`
+- a processed note moved into `Notes/`
 - a paper candidate handed off to the `paper-ingestion` skill
 - an item intentionally left in `Inbox/` with only minimal clarification
 
@@ -27,7 +27,7 @@ One of:
 
 1. Inspect the item and identify its basic type.
 2. Decide whether it is primarily:
-   - a durable note candidate
+   - a knowledge-layer note candidate
    - a paper or paper candidate
    - an unsupported or unresolved item
 3. Add only the minimum enrichment needed to support later placement.
@@ -47,17 +47,19 @@ Do not turn triage into full synthesis, taxonomy building, or broad cleanup.
 
 ## Placement Rules
 
-- Move durable note material to `Notes/` only when it can function as a knowledge object.
+- Move note material to `Notes/` only when it is processed enough to function in the knowledge layer.
 - Route paper PDFs through the `paper-ingestion` skill before treating them as canonical library items.
 - Do not create new agent work product in `Inbox/` unless explicitly simulating human capture.
-- When promoting a non-English durable note into `Notes/`, add the minimum English retrieval bridge required by the language rule.
+- Add the minimum metadata required by `System/Rules/processed-note-metadata.md` before promoting a note into `Notes/`.
+- When promoting a non-English processed note into `Notes/`, also add the extra English retrieval bridge required by the language rule.
+- Confirm the note is incorporated into the relevant index, hub, or navigation surface before leaving `Inbox/`.
 
 ## When Not To Act
 
 Do not relocate an item when:
 
 - the type is still unclear
-- the durable destination is uncertain
+- the processed destination is uncertain
 - the move would imply a classification that is not yet justified
 - renaming or moving would create unnecessary churn
 

@@ -12,7 +12,7 @@ Use this skill when a user asks a question that should be answered from the cont
 ## Inputs
 
 - the user question
-- English retrieval metadata on non-English durable notes when available
+- English retrieval metadata on non-English processed notes when available
 - `Notes/Index.md` when it exists
 - access to vault search and note reading
 - access to related paper notes and, when necessary, canonical PDFs
@@ -41,7 +41,7 @@ Use the `obsidian-cli` skill when you need concrete CLI targeting, retrieval, or
 
 Prefer this order when available:
 
-- durable summary notes
+- integrated summary notes
 - paper notes in `Notes/`
 - closely linked knowledge notes
 - raw source files such as PDFs
@@ -65,7 +65,7 @@ Do not scan the whole vault if a bounded subset is enough.
 
 Stay in the note layer when:
 
-- a durable summary already answers the question
+- an integrated summary already answers the question
 - a paper note captures the needed claim accurately
 - additional source reading would add little value
 
@@ -78,6 +78,7 @@ Before finalizing:
 - confirm the cited note or source actually supports the answer
 - confirm the answer matches the current vault contents
 - confirm cross-language misses were handled through English retrieval metadata when relevant
+- note whether the query or deep read created future sleep signals that should be recorded operationally
 - avoid mixing unsupported outside knowledge into a vault-grounded response
 
 ## Related Skills

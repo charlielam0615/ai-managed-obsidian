@@ -6,7 +6,7 @@ They are not a mandatory ontology. Use them to keep artifacts legible and consis
 
 ## Principle
 
-A `sleep` artifact should reduce future comprehension cost with the smallest durable addition that helps.
+A `sleep` artifact should reduce future comprehension cost with the smallest integration-oriented addition that helps.
 
 Prefer:
 

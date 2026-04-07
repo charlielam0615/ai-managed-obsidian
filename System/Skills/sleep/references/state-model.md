@@ -2,7 +2,7 @@
 
 This reference defines the intended role of `System/State/sleep/`.
 
-`sleep` uses state to stay bounded, incremental, and re-runnable. The state layer is operational memory only. It should help later runs decide what to process, what changed, and what was deferred. It should not become a second knowledge graph or a shadow note system.
+`sleep` uses state to stay bounded, incremental, and re-runnable. The state layer is operational memory only. It should help later runs decide what to process, what changed, what interactions created future work, and what was deferred. It should not become a second knowledge graph or a shadow note system.
 
 ## Design Goals
 
@@ -11,6 +11,7 @@ The state model should support:
 - per-target tracking
 - cluster tracking
 - change detection and staleness
+- interaction-driven future-work signaling
 - run checkpoints
 - audit history
 
@@ -29,6 +30,7 @@ State may contain:
 - last-run outcomes
 - deferral reasons
 - queue or priority hints
+- interaction signals from note-affecting activity
 - audit entries describing what a pass touched
 
 State should describe workflow facts, not vault meaning.
@@ -89,6 +91,8 @@ Possible fields:
 - defer reason
 - last run id
 
+Targets may also carry lightweight integration status such as whether linking, metadata improvement, or navigation follow-up is still pending.
+
 ## Clusters
 
 Purpose:
@@ -120,6 +124,7 @@ Purpose:
 
 - hold the current or next bounded worklist
 - preserve prioritization decisions across interrupted passes
+- capture future integration work created by note-affecting interactions
 
 This can be lightweight. It does not need to be a job scheduler.
 
@@ -130,6 +135,12 @@ Useful contents:
 - selection reason
 - queued at
 - optional user scope tag
+- note path
+- interaction type
+- observed at
+- source such as `user`, `agent`, `query`, `edit`, or `move`
+- follow-up kind such as `linking`, `metadata`, `index`, `overview`, or `revisit`
+- optional context note or seed query
 
 ## Runs
 
@@ -157,6 +168,34 @@ Useful fields:
 - completed targets
 - deferred targets
 - checkpoint note
+
+## Interaction Signals
+
+Purpose:
+
+- record note-affecting activity that should influence later sleep passes
+- preserve future integration work even when the current interaction does not perform it immediately
+
+Examples of note-affecting interactions:
+
+- create
+- edit
+- move
+- metadata change
+- deep read
+- broad query over notes
+- reorganization work
+
+Useful fields:
+
+- note path
+- interaction type
+- observed at
+- source
+- priority hint
+- follow-up kind
+- optional context note
+- optional seed query
 
 ## History
 

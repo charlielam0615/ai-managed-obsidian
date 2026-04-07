@@ -2,7 +2,7 @@
 
 This is the vault's curated navigation note.
 
-It is intentionally selective: it should point to durable entry points in the knowledge layer, not try to list every note in the vault.
+It is intentionally selective: it should point to processed entry points in the knowledge layer, not try to list every note in the vault.
 
 ## Start Here
 
@@ -12,7 +12,7 @@ It is intentionally selective: it should point to durable entry points in the kn
 
 ## Core Topics
 
-No durable topic notes yet.
+No processed topic notes yet.
 
 ## Key Paper Notes
 

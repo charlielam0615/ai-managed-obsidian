@@ -1,6 +1,6 @@
 ---
 name: sleep
-description: Use this skill when a human explicitly requests a bounded maintenance pass over existing vault contents to improve future comprehension by creating or refreshing durable digests, synthesis notes, and lightweight relationship scaffolding without broad reorganization.
+description: Use this skill when a human explicitly requests a bounded maintenance pass over existing vault contents to improve future comprehension by creating or refreshing digests, synthesis notes, links, and integration scaffolding without broad reorganization.
 ---
 
 # Sleep
@@ -15,7 +15,7 @@ This skill is manual-only. Do not trigger it on a timer, on startup, on idle, on
 
 `sleep` is the vault's unified consolidation workflow.
 
-Its job is to reduce future reading cost by creating durable semantic scaffolding inside the vault itself. It does this by digesting bounded targets, improving legibility, surfacing relationships, and building progressive-disclosure layers that later humans and agents can read directly.
+Its job is to reduce future reading cost by creating and strengthening semantic scaffolding inside the vault itself. It does this by digesting bounded targets, improving legibility, surfacing relationships, adding high-confidence links, and building progressive-disclosure layers that later humans and agents can read directly.
 
 `sleep` exists because the vault is the source of truth. Future understanding should come from better notes, better digests, and better synthesis in `Notes/`, not from hidden runtime memory.
 
@@ -33,10 +33,11 @@ One bounded consolidation pass that leaves behind durable, reviewable artifacts 
 - improved local digests inside notes or paper notes
 - refreshed paper-note summaries
 - cluster overview notes
-- selective high-confidence relationship enrichment
+- selective high-confidence Obsidian-compatible linking
 - new entry points into dense note regions
+- refreshed metadata and navigation surfaces
 
-Operational memory about the pass belongs in `System/State/sleep/`. Durable understanding belongs in `Notes/`.
+Operational memory about the pass belongs in `System/State/sleep/`. Knowledge and relationships belong in `Notes/`.
 
 ## Unified Target Model
 
@@ -50,7 +51,7 @@ Target shapes include:
 - a note neighborhood around a seed
 - a stale digest that needs refresh
 
-These are all the same kind of work at different scales: read the source material, identify the minimum durable scaffolding that would reduce future comprehension cost, write that scaffolding into the knowledge layer, and record operational state for re-runs.
+These are all the same kind of work at different scales: read the source material, identify the minimum integration work that would reduce future comprehension cost, write that scaffolding into the knowledge layer, and record operational state for re-runs.
 
 ## Progressive Disclosure Model
 
@@ -98,7 +99,7 @@ Digest as a cluster when:
 - a dense neighborhood lacks an overview
 - several local digests exist but no synthesis layer ties them together
 
-Start with the smallest scope that can produce a durable improvement. Escalate from one note to a cluster only when local digestion would leave the main comprehension gap unresolved.
+Start with the smallest scope that can produce a meaningful integration improvement. Escalate from one note to a cluster only when local digestion would leave the main comprehension gap unresolved.
 
 ## Procedure
 
@@ -108,10 +109,11 @@ Start with the smallest scope that can produce a durable improvement. Escalate f
 4. Select one or a few high-leverage targets.
 5. Decide whether each target should be handled locally or as a cluster.
 6. Read the relevant notes and paper notes first. Read raw PDFs only when the note layer is insufficient.
-7. Create or refresh the smallest durable artifact that would make the target materially easier to understand later.
-8. Update `Notes/Index.md` only if the pass created or materially improved a durable entry point into the knowledge layer.
-9. Add only high-confidence links or relationship cues.
-10. Update `System/State/sleep/` so a later run can tell what changed, what was deferred, and what remains stale.
+7. Create or refresh the smallest integration artifact that would make the target materially easier to understand later.
+8. Add or improve high-confidence Obsidian-compatible links when they materially strengthen the note graph.
+9. Update `Notes/Index.md` only if the pass created or materially improved a processed entry point into the knowledge layer.
+10. Update metadata, hubs, or overview notes when they materially improve integration quality.
+11. Update `System/State/sleep/` so a later run can tell what changed, what was deferred, what should be revisited next, and which note-affecting interactions created future work.
 
 Use the `obsidian-cli` skill for note-aware retrieval or path-sensitive note operations when practical, but `sleep` is not primarily a CLI skill.
 
@@ -125,6 +127,7 @@ Use the `obsidian-cli` skill for note-aware retrieval or path-sensitive note ope
 - create overview notes where useful
 - refresh the content index when navigation materially improved
 - refresh stale digest layers when the underlying material changed
+- strengthen metadata and navigation surfaces
 
 `sleep` must not:
 
@@ -159,6 +162,7 @@ Repeated runs should be incremental.
 - refresh stale digests when justified
 - revisit clusters when member notes changed materially
 - avoid rewording stable digests without a real need
+- consume queued future-work signals from note-affecting interactions
 
 The goal is progressive improvement, not churn.
 
@@ -187,16 +191,17 @@ State is used to:
 - remember deferrals and why they happened
 - checkpoint runs and support incremental re-entry
 - audit what each pass touched
+- record future integration work signaled by note-affecting interactions
 
-State must not contain the actual durable summaries or synthesis that belong in `Notes/`.
+State must not contain the actual summaries, synthesis, or relationships that belong in `Notes/`.
 
 Read `references/state-model.md` before implementing or modifying the state layer.
 
 ## Relationship To Other Skills
 
 - `inbox-triage`: moves new material into clearer destinations; `sleep` works on existing material after intake.
-- `paper-ingestion`: normalizes PDFs and paper notes; `sleep` improves the semantic digest and connected understanding around them later.
-- `query-resolution`: answers questions from the current vault; `sleep` makes later query resolution faster by improving the vault itself.
+- `paper-ingestion`: normalizes PDFs and paper notes; `sleep` improves the semantic integration and connected understanding around them later.
+- `query-resolution`: answers questions from the current vault; queries and deep reads may also create future sleep signals that help later integration work.
 - `path-change-policy`: governs whether path churn is justified; `sleep` should normally avoid path churn and delegate that decision when needed.
 
 ## Verification
@@ -204,7 +209,7 @@ Read `references/state-model.md` before implementing or modifying the state laye
 Before ending a `sleep` pass:
 
 - confirm the pass stayed within scope
-- confirm each touched target gained a durable comprehension aid
+- confirm each touched target gained a meaningful comprehension or integration aid
 - confirm new artifacts live in the knowledge layer, not hidden state
 - confirm unchanged or low-confidence targets were skipped or deferred rather than forced
 - confirm the state layer was updated only with operational memory

@@ -32,7 +32,7 @@ Humans:
 Agents:
 
 - process material from `Inbox/`
-- create durable notes and semantic scaffolding in destination folders
+- create processed notes and semantic scaffolding in destination folders
 - improve structure incrementally instead of imposing large taxonomies
 - preserve link integrity and change history
 
@@ -61,3 +61,5 @@ Semantic structure should primarily live in notes, local metadata, and links rat
 - Curated index notes in `Notes/` may provide top-level navigation into the knowledge layer.
 - Links should express relationships between ideas, sources, and paper notes.
 - Folders provide coarse placement, not the full ontology of the vault.
+
+Notes in `Notes/` remain open to future refinement. The distinction between `Inbox/` and `Notes/` is processing status, not permanence.

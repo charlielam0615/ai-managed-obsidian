@@ -15,7 +15,7 @@ Agents working in this repository must follow the rules under `System/Rules/`.
 The most important constraints are:
 
 - `Inbox/` is the single human intake point. Do not use it as a generic agent staging area.
-- Durable knowledge belongs in `Notes/`.
+- Processed notes that are ready for integration belong in `Notes/`.
 - Canonical paper PDFs belong in `Library/Papers/`.
 - System guidance belongs in `System/`.
 - Prefer note and link structure over deep folder expansion.
@@ -37,6 +37,8 @@ If a task affects vault structure or navigation, also read:
 
 - `System/Rules/content-index.md`
 - `System/Rules/language-and-cross-language-retrieval.md`
+- `System/Rules/note-processing-lifecycle.md`
+- `System/Rules/processed-note-metadata.md`
 - `System/Rules/notes-topic-folders.md`
 - `System/Rules/safe-change-policy.md`
 - `System/Rules/obsidian-cli-first.md`
@@ -51,7 +53,7 @@ Agents should:
 - treat it as a navigation surface, not as proof that nothing else exists
 - update it only when navigation materially improves
 
-For multilingual work, agents should keep the shared retrieval surface in English and rely on English metadata on non-English durable notes.
+For multilingual work, agents should keep the shared retrieval surface in English and rely on English metadata on non-English processed notes.
 
 Do not:
 
@@ -64,8 +66,8 @@ Do not:
 When a task matches one of the workflows above, the final report should include enough evidence to show the workflow was followed.
 
 - Broad vault questions: say whether `Notes/Index.md` was consulted, whether the query was translated into English for retrieval, which notes were the main anchors, and whether raw PDFs were needed.
-- Inbox or paper ingestion: report the final note or PDF destination, duplicate-check outcome when relevant, and whether the index changed.
-- Sleep or maintenance passes: report the scope, durable artifacts created or refreshed, and whether the index changed.
+- Inbox or paper ingestion: report the final note or PDF destination, duplicate-check outcome when relevant, whether required metadata and navigation integration were completed, and whether the index changed.
+- Sleep or maintenance passes: report the scope, links or integration work added or refreshed, whether the index changed, and what future sleep signals were recorded operationally.
 - Path-sensitive note edits: say whether Obsidian-aware operations were used and, if not, why a direct edit was safe.
 
 ## Change Posture

@@ -14,7 +14,7 @@ When renaming imported files, prefer names that improve recognition without over
 
 Do not use renames alone to solve multilingual retrieval.
 
-For non-English durable notes in `Notes/`, prefer a lightweight English retrieval bridge:
+For non-English processed notes in `Notes/`, prefer a lightweight English retrieval bridge:
 
 - `lang` for the note's primary language
 - English `aliases`
@@ -56,7 +56,7 @@ Raw filesystem moves are acceptable only when link safety is not at risk or when
 Prefer aliases when the current title is already stable enough but alternate names would improve discovery.
 
 - use an alias to support recall, searchability, or alternate phrasing
-- use English aliases on non-English durable notes to support English-space retrieval
+- use English aliases on non-English processed notes to support English-space retrieval
 - use a rename when the current name is actively misleading, noisy, or unstable
 
 Do not rename files only to satisfy minor style preferences when an alias would achieve the goal with less disruption.
