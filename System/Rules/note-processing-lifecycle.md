@@ -36,10 +36,15 @@ Items in `Inbox/` may still need:
 - better placement
 - metadata
 - source clarification
-- conversion into note-ready form
 - incorporation into the note graph
 
-Leaving something in `Inbox/` does not mean it is low value. It means processing is not complete enough yet.
+For note-like items, processing should finish by moving them out of `Inbox/` and into the knowledge layer.
+
+Leaving something in `Inbox/` does not mean it is low value. It means either:
+
+- the item has not yet been processed at all
+- the item is not yet acting as a note
+- the item is unsupported or still needs capture-level clarification before it can become a proper note
 
 ## Notes
 
@@ -76,6 +81,8 @@ A note should leave `Inbox/` only after:
 Do not require complete synthesis before moving a note into `Notes/`.
 
 Do require enough processing that the note can be found, understood, and integrated later without returning it to intake status.
+
+For note-like items, this processing should happen during triage rather than leaving them behind in `Inbox/` as unresolved notes.
 
 If no topic hub or other better navigation surface exists yet, the bootstrap section in `Notes/Index.md` is the default fallback.
 

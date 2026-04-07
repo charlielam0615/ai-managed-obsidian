@@ -32,7 +32,7 @@ Agents should not use `Inbox/` as a generic staging area for their own work.
 
 ## Relocating Notes And Papers
 
-When processing `Inbox/`, agents should move items only when the destination is reasonably clear.
+When processing `Inbox/`, agents should digest note-like items enough to move them onward rather than leaving them in `Inbox/` as unresolved notes.
 
 - move notes into `Notes/` only after they are processed enough to function in the knowledge layer
 - move PDF papers into `Library/Papers/` when they are identified as part of the paper corpus
@@ -48,10 +48,10 @@ Required metadata should follow `System/Rules/processed-note-metadata.md`.
 
 ## Handling Uncertainty
 
-Uncertainty should not force premature relocation.
+Uncertainty should not force premature promotion, but it also should not leave note-like items indefinitely in `Inbox/`.
 
-- If a note is still incomplete or ambiguous, it may remain in `Inbox/` until a reasonable placement decision can be made.
+- If a note-like item is rough or ambiguous, triage should still process it enough to become a note in `Notes/`, using the lightest reasonable placement and metadata.
 - If a paper's metadata is unclear, prefer minimal cleanup and deferred placement decisions over inventing false precision.
-- When unsure, preserve the item and add only the minimum structure needed to support later review.
+- When unsure, preserve only genuinely unsupported or non-note items in `Inbox/` and add the minimum structure needed to support later review.
 
 Notes in `Notes/` are still open to future edits, links, metadata changes, and restructuring. Moving a note out of `Inbox/` means it is processed enough for integration, not that it is final.

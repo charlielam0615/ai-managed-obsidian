@@ -1,6 +1,6 @@
 ---
 name: inbox-triage
-description: Use this skill when processing material in Inbox/, deciding whether an item is ready for the knowledge layer, a paper candidate, or still unresolved, and relocating it conservatively without forcing classification.
+description: Use this skill when processing material in Inbox/, digesting note-like items into the knowledge layer, routing paper candidates appropriately, and leaving only genuinely unsupported or non-note items unresolved.
 ---
 
 # Inbox Triage
@@ -21,7 +21,7 @@ One of:
 
 - a processed note moved into `Notes/`
 - a paper candidate handed off to the `paper-ingestion` skill
-- an item intentionally left in `Inbox/` with only minimal clarification
+- an unsupported or non-note item intentionally left in `Inbox/` with only minimal clarification
 
 ## Procedure
 
@@ -31,8 +31,9 @@ One of:
    - a paper or paper candidate
    - an unsupported or unresolved item
 3. Add only the minimum enrichment needed to support later placement.
-4. Move the item only if the destination is reasonably clear.
-5. Leave uncertain items in `Inbox/` instead of forcing classification.
+4. Digest note-like material enough that it can leave `Inbox/` and join the knowledge layer.
+5. Move the resulting note into `Notes/`, or route papers through `paper-ingestion`.
+6. Leave only genuinely unsupported or non-note items in `Inbox/`.
 
 ## Minimal Enrichment
 
@@ -60,16 +61,20 @@ Do not turn triage into full synthesis, taxonomy building, or broad cleanup.
 - If the bootstrap section is already at its cap, remove the oldest bootstrap entry that still lacks a better navigation surface rather than blocking promotion.
 - If follow-up integration work remains after promotion, record one or more queue signals using `System/Skills/sleep/references/signal-writing.md`.
 
+For note-like items, uncertainty is not a reason to leave them in `Inbox/`.
+
+Triage should digest them enough to move them onward.
+
 ## When Not To Act
 
 Do not relocate an item when:
 
-- the type is still unclear
-- the processed destination is uncertain
+- the item is genuinely not note-like
+- the item is unsupported in the current system
 - the move would imply a classification that is not yet justified
 - renaming or moving would create unnecessary churn
 
-In these cases, preserve the item and make only the minimum change needed to support later review.
+In these cases, preserve the item in `Inbox/` and make only the minimum change needed to support later review.
 
 ## Verification
 
