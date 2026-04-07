@@ -59,6 +59,7 @@ System/
 - `language-and-cross-language-retrieval`
 - `library-and-papers`
 - `linking-and-naming`
+- `notes-topic-folders`
 - `obsidian-cli-first`
 - `sleep`
 - `safe-change-policy`
@@ -76,8 +77,13 @@ These are policy files, not app code.
 - `path-change-policy`
 - `obsidian-cli`
 - `sleep`
+- `wechat-article-download`
 
 These are packaged as Agent Skills directories with `SKILL.md` entrypoints.
+
+Notable addition:
+
+- `wechat-article-download` captures `mp.weixin.qq.com` article URLs into `Inbox/` as readable Markdown notes, preserving source metadata and extracted article body for later triage.
 
 ## Design Principles
 
@@ -177,6 +183,7 @@ or explicitly invoke one:
 ```text
 $sleep
 $paper-ingestion
+$wechat-article-download
 ```
 
 Notes:
@@ -244,11 +251,22 @@ Read `System/Skills/inbox-triage/SKILL.md` and follow it for the current Inbox t
 Additional user context: $ARGUMENTS
 ```
 
+Example `.claude/commands/wechat-article-download.md`:
+
+```md
+---
+description: Capture a WeChat article into Inbox
+---
+
+Read `System/Skills/wechat-article-download/SKILL.md` and capture the provided WeChat article URL into `Inbox/`.
+```
+
 Then use them inside Claude Code:
 
 ```text
 /sleep work on the most central stale note cluster
 /inbox-triage process the current inbox conservatively
+/wechat-article-download https://mp.weixin.qq.com/...
 ```
 
 Notes:

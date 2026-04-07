@@ -30,6 +30,7 @@ For structure or navigation changes, also read:
 - `System/Rules/operating-model.md`
 - `System/Rules/content-index.md`
 - `System/Rules/language-and-cross-language-retrieval.md`
+- `System/Rules/notes-topic-folders.md`
 - `System/Rules/safe-change-policy.md`
 - `System/Rules/obsidian-cli-first.md`
 
