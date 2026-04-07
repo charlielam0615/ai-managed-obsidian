@@ -166,207 +166,54 @@ obsidian help
 
 Obsidian's official CLI docs note that the desktop app must be running, and the CLI is intended for scripting, automation, and agentic workflows.
 
-## Project-Local Skill Installation
+## Quick Start
 
-This repository stores the canonical skills under `System/Skills/` because they are part of the vault's operating contract.
+Use this when you want to turn the repository into your own working vault quickly.
 
-Different agent tools look for local skills in different places. The sections below show the cleanest project-local setup for each tool.
+1. Clone the repository and open it as an Obsidian vault.
 
-### Codex
+   ```sh
+   git clone <your-fork-or-copy-url> my-vault
+   cd my-vault
+   ```
 
-The repo also includes a top-level `AGENTS.md` that routes common task types to the correct vault workflows and reporting expectations.
+2. Install the local skills for Codex by symlinking the canonical skill folders into `.agents/skills/`.
 
-Codex officially supports Agent Skills and scans project-local skills from `.agents/skills/` as well as user-level and admin-level locations.
+   ```sh
+   mkdir -p .agents/skills
+   for dir in System/Skills/*; do
+     [ -d "$dir" ] || continue
+     name="$(basename "$dir")"
+     ln -sfn "../../$dir" ".agents/skills/$name"
+   done
+   ```
 
-Important compatibility detail:
+   Restart Codex if needed, then verify with `/skills`.
 
-- this repo keeps the canonical skill definitions in `System/Skills/`
-- Codex expects discovery from `.agents/skills/`
-- Codex officially supports symlinked skill folders
+3. Re-initialize Git so your new repository tracks your notes and changes instead of this starter history.
 
-The simplest project-local setup is to symlink the repo's canonical skills into `.agents/skills/`.
+   ```sh
+   rm -rf .git
+   git init
+   git add .
+   git commit -m "Initialize my knowledge vault"
+   ```
 
-From the repository root:
+4. Start adding notes.
+   Put rough captures, clips, and drafts in `Inbox/`. Put processed notes that are ready for retrieval in `Notes/`.
 
-```sh
-mkdir -p .agents/skills
+5. Create your first digest or processed note.
+   Take one rough note from `Inbox/`, add the minimum metadata (`lang` and an English `summary`), and move it into `Notes/`. If the note is non-English, also add English `aliases` and `search_terms`.
 
-for dir in System/Skills/*; do
-  [ -d "$dir" ] || continue
-  name="$(basename "$dir")"
-  ln -sfn "../../$dir" ".agents/skills/$name"
-done
-```
+6. Run a bounded `sleep` pass when you want the vault to become easier to navigate.
+   Use `sleep` to add links, refresh summaries, improve local overviews, and strengthen the index without broad reorganization.
 
-Then restart Codex if needed and verify:
-
-```text
-/skills
-```
-
-or explicitly invoke one:
-
-```text
-$sleep
-$paper-ingestion
-$wechat-article-download
-```
-
-Notes:
-
-- Codex reads skills from repo, user, admin, and built-in system locations.
-- For reusable distribution beyond one repo, OpenAI recommends packaging skills as plugins rather than relying only on local folders.
-- If you want a user-level install instead, use `~/.agents/skills/`.
-
-### Claude Code
-
-Claude Code does not use the exact same project-local skill discovery mechanism as Codex.
-
-The official project-level mechanisms are:
-
-- `CLAUDE.md` project memory
-- `@path` imports inside `CLAUDE.md`
-- project slash commands under `.claude/commands/`
-
-Recommended approach for this repo:
-
-1. Keep the canonical skill definitions in `System/Skills/`
-2. Use the included lightweight project `CLAUDE.md`
-3. Add project slash commands that tell Claude Code to read and use a specific skill on demand
-
-Current `CLAUDE.md`:
-
-```md
-# Project Memory
-
-See @README for repository overview.
-
-# Skill Location
-
-Reusable workflows for this vault live under `System/Skills/`.
-When a task clearly matches one of those workflows, read the corresponding `SKILL.md` before acting.
-```
-
-Suggested project commands:
-
-```sh
-mkdir -p .claude/commands
-```
-
-Example `.claude/commands/sleep.md`:
-
-```md
----
-description: Run the repo's manual sleep workflow
----
-
-Read `System/Skills/sleep/SKILL.md` and any files it references. Then carry out the requested bounded sleep pass.
-
-Additional user context: $ARGUMENTS
-```
-
-Example `.claude/commands/inbox-triage.md`:
-
-```md
----
-description: Run the repo's inbox triage workflow
----
-
-Read `System/Skills/inbox-triage/SKILL.md` and follow it for the current Inbox task.
-
-Additional user context: $ARGUMENTS
-```
-
-Example `.claude/commands/wechat-article-download.md`:
-
-```md
----
-description: Capture a WeChat article into Inbox
----
-
-Read `System/Skills/wechat-article-download/SKILL.md` and capture the provided WeChat article URL into `Inbox/`.
-```
-
-Then use them inside Claude Code:
+Helpful prompts:
 
 ```text
-/sleep work on the most central stale note cluster
-/inbox-triage process the current inbox conservatively
-/wechat-article-download https://mp.weixin.qq.com/...
+$inbox-triage process the current inbox conservatively
+$sleep work on the most central stale note cluster
 ```
-
-Notes:
-
-- `CLAUDE.md` is team-shared project memory.
-- Anthropic documents `CLAUDE.local.md` as deprecated in favor of imports.
-- Keep `CLAUDE.md` lean. Avoid importing every skill file directly unless you want all of them loaded into context eagerly.
-- `CLAUDE.md` should route Claude toward `Notes/Index.md`, the matching skill in `System/Skills/`, and the relevant rules for structure-sensitive work.
-
-### Other Tools
-
-These skills follow the open Agent Skills directory format:
-
-- one directory per skill
-- a `SKILL.md` file with YAML frontmatter
-- optional `references/`, `scripts/`, and `assets/`
-
-That makes them portable to other tools that support the Agent Skills format directly, or adaptable through tool-specific imports, commands, or wrappers.
-
-## State Layer
-
-The `sleep` skill is explicitly designed to use `System/State/sleep/` for operational memory.
-
-That state is intended to hold things like:
-
-- per-target freshness
-- cluster tracking
-- future sleep signals from note-affecting interactions
-- run checkpoints
-- audit history
-
-It is intentionally not the semantic layer.
-
-Knowledge, links, summaries, and integration outputs belong in `Notes/`, not in hidden runtime state.
-
-Concrete queue-record examples live in [signal-examples.md](System/Skills/sleep/references/signal-examples.md).
-
-## Recommended Git Workflow
-
-- keep commits small and coherent
-- separate structure, content, and path changes when possible
-- avoid broad vault churn
-- prefer reviewable digests and synthesis over large rewrites
-
-The repository includes rule files that codify this more precisely under `System/Rules/`.
-
-## Why `sleep` Matters
-
-The central idea in this repo is that future comprehension should get cheaper over time.
-
-The `sleep` skill is the bounded manual integration pass that makes that happen. It creates progressive-disclosure layers, strengthens links, and improves navigation in the vault itself so later humans and agents can understand dense material faster without relying on hidden memory.
-
-## Example Workflow
-
-One realistic path through the system looks like this:
-
-1. A rough note starts in `Inbox/`.
-2. `inbox-triage` decides it is ready for the knowledge layer.
-3. The note gets the minimum processed-note metadata:
-   - `lang`
-   - an English `summary`
-   - and, if non-English, English `aliases` plus English `search_terms`
-4. The note moves into `Notes/`.
-5. If no topic hub or better navigation surface exists yet, the note enters the temporary bootstrap section in `Notes/Index.md`.
-6. If later integration work remains, the workflow writes a queue signal under `System/State/sleep/queue/`.
-7. A later `sleep` pass reads those signals, adds high-confidence links, improves metadata or navigation, and promotes or prunes bootstrap visibility when a better navigation surface exists.
-8. A later query retrieves the note through the index, links, metadata, and English retrieval bridge.
-
-For the detailed rules behind this flow, see:
-
-- [note-processing-lifecycle.md](System/Rules/note-processing-lifecycle.md)
-- [processed-note-metadata.md](System/Rules/processed-note-metadata.md)
-- [content-index.md](System/Rules/content-index.md)
-- [signal-writing.md](System/Skills/sleep/references/signal-writing.md)
 
 ## References
 
