@@ -72,6 +72,15 @@ Bootstrap behavior:
 
 For the first version, cap the bootstrap section to a small recent set of at most 15 notes.
 
+If adding a newly processed note would exceed the cap:
+
+- remove the oldest bootstrap entry that still lacks a better navigation surface
+- do not block promotion out of `Inbox/`
+- do not allow silent indefinite overflow
+- if the removed entry still needs future integration work, rely on an existing sleep-state signal or write one
+
+Removing an entry from the bootstrap section is an operational pruning step, not a claim that the note is unimportant.
+
 ## What Does Not Belong
 
 Do not use the index for:

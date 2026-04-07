@@ -6,6 +6,8 @@ The goal is to make future integration work explicit, append-only, and reviewabl
 
 See `signal-examples.md` for concrete example records.
 
+See `System/State/sleep/runs/example-run.json` and `System/State/sleep/history/example-history.json` for concrete examples of how later sleep runs record signal outcomes.
+
 ## Canonical Location
 
 Write future sleep signals under:

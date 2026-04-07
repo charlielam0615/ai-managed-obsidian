@@ -57,6 +57,7 @@ Do not turn triage into full synthesis, taxonomy building, or broad cleanup.
   - existing relevant curated index section
   - bootstrap section in `Notes/Index.md`
 - Do not invent a new topic hub prematurely just to satisfy the placement rule.
+- If the bootstrap section is already at its cap, remove the oldest bootstrap entry that still lacks a better navigation surface rather than blocking promotion.
 - If follow-up integration work remains after promotion, record one or more queue signals using `System/Skills/sleep/references/signal-writing.md`.
 
 ## When Not To Act

@@ -18,6 +18,8 @@ Temporary fallback section for newly processed notes that do not yet have a bett
 
 Keep this section bounded and prunable during `sleep`.
 
+If the section reaches its cap, remove the oldest bootstrap entry that still lacks a better navigation surface rather than blocking new note promotion.
+
 ## Core Topics
 
 No processed topic notes yet.

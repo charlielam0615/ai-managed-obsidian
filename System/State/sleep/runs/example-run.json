@@ -1,0 +1,21 @@
+{
+  "run_id": "sleep-run-2026-04-07T16-00-00Z",
+  "started_at": "2026-04-07T16:00:00Z",
+  "completed_at": "2026-04-07T16:24:00Z",
+  "scope_hint": "Knowledge systems cluster cleanup",
+  "selected_targets": [
+    "Notes/Knowledge Systems.md",
+    "Notes/知识图谱连接模式.md"
+  ],
+  "queue_signals_considered": [
+    "System/State/sleep/queue/2026-04-07T12-34-56Z-query-resolution-knowledge-systems.json",
+    "System/State/sleep/queue/2026-04-07T13-10-12Z-inbox-triage-agent-collaboration-patterns.json"
+  ],
+  "completed_targets": [
+    "Notes/Knowledge Systems.md"
+  ],
+  "deferred_targets": [
+    "Notes/知识图谱连接模式.md"
+  ],
+  "checkpoint_note": "Added high-confidence links and promoted one bootstrap entry into a stronger overview surface. Deferred metadata normalization for the Chinese note to keep the run bounded."
+}

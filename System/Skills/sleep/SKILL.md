@@ -28,7 +28,7 @@ Its job is to reduce future reading cost by creating and strengthening semantic 
 
 ## Output
 
-One bounded consolidation pass that leaves behind durable, reviewable artifacts in the knowledge layer, such as:
+One bounded consolidation pass that leaves behind processed, reviewable integration outputs in the knowledge layer, such as:
 
 - improved local digests inside notes or paper notes
 - refreshed paper-note summaries

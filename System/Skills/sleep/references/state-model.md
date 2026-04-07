@@ -64,6 +64,8 @@ You do not need this exact directory structure if a later implementation finds a
 
 Read `signal-writing.md` for the canonical queue write protocol and `signal-examples.md` for concrete example records.
 
+See `System/State/sleep/runs/example-run.json` and `System/State/sleep/history/example-history.json` for concrete examples of how later sleep runs record signal resolution operationally.
+
 ## Targets
 
 Purpose:

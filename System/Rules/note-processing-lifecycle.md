@@ -79,6 +79,8 @@ Do require enough processing that the note can be found, understood, and integra
 
 If no topic hub or other better navigation surface exists yet, the bootstrap section in `Notes/Index.md` is the default fallback.
 
+If the bootstrap section is already at capacity, remove the oldest bootstrap entry that still lacks a better navigation surface rather than blocking promotion from `Inbox/`.
+
 ## State Relationship
 
 Operational state may record what should be revisited later.

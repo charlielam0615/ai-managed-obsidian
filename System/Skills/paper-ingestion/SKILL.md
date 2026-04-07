@@ -89,7 +89,15 @@ If the resulting paper note is primarily non-English, include the minimum Englis
 - English `search_terms`
 - a short English `summary`
 
+When integrating the paper note into navigation, use this fallback order:
+
+1. existing topic hub or overview note
+2. existing curated index section if the paper note is genuinely an entry point
+3. bootstrap section in `Notes/Index.md` when no better navigation surface exists yet
+
 Update `Notes/Index.md` only when the paper note clearly becomes a processed entry point, such as a key paper note or a topic anchor. Do not add every ingested paper to the index.
+
+Bootstrap fallback is acceptable for ordinary paper notes during cold start or hub absence.
 
 If the new or updated paper note likely needs later linking, overview integration, or broader sleep digestion, record one or more queue signals using `System/Skills/sleep/references/signal-writing.md`.
 
