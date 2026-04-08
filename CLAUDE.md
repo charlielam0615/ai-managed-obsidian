@@ -32,6 +32,7 @@ Do not improvise a fresh workflow when an existing skill already matches the tas
 - Broad vault questions: read `Notes/Index.md` first, then use `System/Skills/query-resolution/SKILL.md`.
 - Inbox processing: use `System/Skills/inbox-triage/SKILL.md`.
 - Paper or PDF ingestion: use `System/Skills/paper-ingestion/SKILL.md`.
+- AI-authored article or draft writing: use `System/Skills/ai-writing/SKILL.md`.
 - Path-sensitive note operations: use `System/Skills/obsidian-cli/SKILL.md` and `System/Skills/path-change-policy/SKILL.md`.
 - Bounded maintenance or consolidation: use `System/Skills/sleep/SKILL.md`.
 

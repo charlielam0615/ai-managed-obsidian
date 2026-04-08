@@ -73,6 +73,7 @@ These are policy files, not app code.
 
 `System/Skills/` currently includes:
 
+- `ai-writing`
 - `inbox-triage`
 - `paper-ingestion`
 - `query-resolution`
@@ -85,6 +86,7 @@ These are packaged as Agent Skills directories with `SKILL.md` entrypoints.
 
 Notable addition:
 
+- `ai-writing` helps the agent outline, draft, revise, and polish article-like writing while keeping outputs inside the vault's note-processing model.
 - `wechat-article-download` captures `mp.weixin.qq.com` article URLs into `Inbox/` as readable Markdown notes, preserving source metadata and extracted article body for later triage.
 
 ## Design Principles
@@ -208,6 +210,7 @@ Use this when you want to turn the repository into your own working vault quickl
 Helpful prompts:
 
 ```text
+$ai-writing help me draft an article about knowledge graph linking in my vault
 $inbox-triage process the current inbox conservatively
 $sleep work on the most central stale note cluster
 ```
