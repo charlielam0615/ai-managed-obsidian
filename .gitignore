@@ -14,3 +14,11 @@ CLAUDE.md
 README.md
 Inbox/
 System/
+!System/
+!System/Rules/
+!System/Rules/*.md
+!System/Skills/
+!System/Skills/*/
+!System/Skills/*/SKILL.md
+!System/Skills/*/references/
+!System/Skills/*/references/*.md

@@ -40,7 +40,7 @@ State should describe workflow facts, not vault meaning.
 Do not store in state:
 
 - the canonical summary of a note
-- the canonical digest of a paper
+- the canonical digest of a source document
 - the only copy of a cluster synthesis
 - relationship explanations that should live in notes
 - hidden semantic conclusions needed to understand the vault

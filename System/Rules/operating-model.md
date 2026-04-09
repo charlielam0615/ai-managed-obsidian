@@ -59,7 +59,7 @@ Semantic structure should primarily live in notes, local metadata, and links rat
 
 - Notes are the main interface for interpretation and synthesis.
 - Curated index notes in `Notes/` may provide top-level navigation into the knowledge layer.
-- Links should express relationships between ideas, sources, and paper notes.
+- Links should express relationships between ideas, sources, and source notes.
 - Folders provide coarse placement, not the full ontology of the vault.
 
 Notes in `Notes/` remain open to future refinement. The distinction between `Inbox/` and `Notes/` is processing status, not permanence.

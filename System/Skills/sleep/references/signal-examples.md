@@ -46,10 +46,10 @@ They are examples only. They are not the queue itself.
   "note_path": "Notes/Sparse Autoencoders For Feature Discovery.md",
   "interaction_type": "create",
   "observed_at": "2026-04-07T14:02:30Z",
-  "source": "paper-ingestion",
+  "source": "document-ingestion",
   "priority_hint": "high",
   "follow_up_kind": "linking",
-  "reason": "The paper note is in place but still needs links to related interpretability notes and possible inclusion in a topic overview."
+  "reason": "The source note is in place but still needs links to related interpretability notes and possible inclusion in a topic overview."
 }
 ```
 

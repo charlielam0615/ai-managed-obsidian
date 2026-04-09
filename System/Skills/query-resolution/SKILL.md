@@ -1,6 +1,6 @@
 ---
 name: query-resolution
-description: Use this skill when answering questions over the vault by starting from note-layer retrieval, expanding through related notes and paper notes, and consulting raw PDFs only when the note layer is insufficient.
+description: Use this skill when answering questions over the vault by starting from note-layer retrieval, expanding through related notes and source notes, and consulting raw documents only when the note layer is insufficient.
 ---
 
 # Query Resolution
@@ -15,7 +15,7 @@ Use this skill when a user asks a question that should be answered from the cont
 - English retrieval metadata on non-English processed notes when available
 - `Notes/Index.md` when it exists
 - access to vault search and note reading
-- access to related paper notes and, when necessary, canonical PDFs
+- access to related source notes and, when necessary, canonical source documents
 
 ## Output
 
@@ -29,10 +29,10 @@ A grounded answer that:
 
 1. If the user asks in a non-English language, translate the retrieval query into English before broad search.
 2. Read `Notes/Index.md` first when it exists and the query is broad enough to benefit from a top-level map.
-3. Search for directly relevant notes, paper notes, and summaries in English retrieval space.
+3. Search for directly relevant notes, source notes, and summaries in English retrieval space.
 4. Read the strongest initial hits.
-5. Expand into English aliases, English `search_terms`, English summaries, linked notes, backlinks, and associated paper notes when useful.
-6. Consult raw PDFs only when the note layer is insufficient or the question requires source verification.
+5. Expand into English aliases, English `search_terms`, English summaries, linked notes, backlinks, and associated source notes when useful.
+6. Consult raw source documents only when the note layer is insufficient or the question requires source verification.
 7. Answer from the strongest available evidence in the vault.
 
 Use the `obsidian-cli` skill when you need concrete CLI targeting, retrieval, or fallback behavior.
@@ -42,11 +42,11 @@ Use the `obsidian-cli` skill when you need concrete CLI targeting, retrieval, or
 Prefer this order when available:
 
 - integrated summary notes
-- paper notes in `Notes/`
+- source notes in `Notes/`
 - closely linked knowledge notes
-- raw source files such as PDFs
+- raw source files such as documents
 
-Raw PDFs are a fallback source, not the default starting point.
+Raw source documents are a fallback source, not the default starting point.
 
 ## Expansion Rules
 
@@ -61,15 +61,15 @@ Expand conservatively:
 
 Do not scan the whole vault if a bounded subset is enough.
 
-## When Not To Escalate To PDFs
+## When Not To Escalate To Source Documents
 
 Stay in the note layer when:
 
 - an integrated summary already answers the question
-- a paper note captures the needed claim accurately
+- a source note captures the needed claim accurately
 - additional source reading would add little value
 
-Escalate to a PDF only for missing details, source verification, or quote-level checks.
+Escalate to a source document only for missing details, source verification, or quote-level checks.
 
 ## Verification
 
@@ -84,4 +84,4 @@ Before finalizing:
 ## Related Skills
 
 - `obsidian-cli`
-- `paper-ingestion`
+- `document-ingestion`

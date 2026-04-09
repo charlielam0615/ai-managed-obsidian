@@ -24,9 +24,9 @@ If the section reaches its cap, remove the oldest bootstrap entry that still lac
 
 No processed topic notes yet.
 
-## Key Paper Notes
+## Key Source Notes
 
-No paper notes yet.
+No source notes yet.
 
 ## Synthesis And Overviews
 

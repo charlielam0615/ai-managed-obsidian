@@ -21,7 +21,7 @@ Prefer small, coherent commits.
 When possible, separate different kinds of work.
 
 - intake processing can be grouped separately from semantic note creation
-- paper library cleanup can be grouped separately from note linking
+- document library cleanup can be grouped separately from note linking
 - structural reorganization can be grouped separately from content refinement
 
 This makes review and rollback easier.

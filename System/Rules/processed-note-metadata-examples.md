@@ -54,14 +54,14 @@ Why the extra fields exist:
 ```md
 ---
 lang: en
-summary: Paper note on sparse autoencoders and feature decomposition in transformer activations.
+summary: Source note on sparse autoencoders and feature decomposition in transformer activations.
 ---
 
 # Sparse Autoencoders For Feature Discovery
 
-- PDF: [[Library/Papers/sparse-autoencoders.pdf]]
+- Source file: [[Library/Documents/sparse-autoencoders.pdf]]
 - Authors: Example Author, Another Author
 - Year: 2025
 ```
 
-This example shows that paper notes still follow the same minimum processed-note contract, even when they also carry paper-specific metadata.
+This example shows that source notes still follow the same minimum processed-note contract, even when they also carry richer document-specific metadata.

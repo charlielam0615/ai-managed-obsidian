@@ -1,6 +1,6 @@
 ---
 name: inbox-triage
-description: Use this skill when processing material in Inbox/, digesting note-like items into the knowledge layer, routing paper candidates appropriately, and leaving only genuinely unsupported or non-note items unresolved.
+description: Use this skill when processing material in Inbox/, digesting note-like items into the knowledge layer, routing source documents appropriately, and leaving only genuinely unsupported or non-note items unresolved.
 ---
 
 # Inbox Triage
@@ -20,7 +20,7 @@ Use this skill when new human-created material has landed in `Inbox/` and needs 
 One of:
 
 - a processed note moved into `Notes/`
-- a paper candidate handed off to the `paper-ingestion` skill
+- a document candidate handed off to the `document-ingestion` skill
 - an unsupported or non-note item intentionally left in `Inbox/` with only minimal clarification
 
 ## Procedure
@@ -28,11 +28,11 @@ One of:
 1. Inspect the item and identify its basic type.
 2. Decide whether it is primarily:
    - a knowledge-layer note candidate
-   - a paper or paper candidate
+   - a source document or document candidate
    - an unsupported or unresolved item
 3. Add only the minimum enrichment needed to support later placement.
 4. Digest note-like material enough that it can leave `Inbox/` and join the knowledge layer.
-5. Move the resulting note into `Notes/`, or route papers through `paper-ingestion`.
+5. Move the resulting note into `Notes/`, or route source documents through `document-ingestion`.
 6. Leave only genuinely unsupported or non-note items in `Inbox/`.
 
 ## Minimal Enrichment
@@ -42,14 +42,14 @@ Allowed examples:
 - clean an obviously noisy title
 - add a short note header if a human draft lacks context
 - record a likely title, source hint, or status note
-- identify whether a PDF appears to be a paper
+- identify what kind of source document a file appears to be
 
 Do not turn triage into full synthesis, taxonomy building, or broad cleanup.
 
 ## Placement Rules
 
 - Move note material to `Notes/` only when it is processed enough to function in the knowledge layer.
-- Route paper PDFs through the `paper-ingestion` skill before treating them as canonical library items.
+- Route PDFs and other source documents through the `document-ingestion` skill before treating them as canonical library items.
 - Do not create new agent work product in `Inbox/` unless explicitly simulating human capture.
 - Add the minimum metadata required by `System/Rules/processed-note-metadata.md` before promoting a note into `Notes/`.
 - When promoting a non-English processed note into `Notes/`, also add the extra English retrieval bridge required by the language rule.
@@ -88,6 +88,6 @@ If verification is weak, stop before doing more cleanup.
 
 ## Related Skills
 
-- `paper-ingestion`
+- `document-ingestion`
 - `obsidian-cli`
 - `path-change-policy`

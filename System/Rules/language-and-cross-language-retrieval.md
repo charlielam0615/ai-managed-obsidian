@@ -49,7 +49,7 @@ If the incoming query is not in English, the agent should:
 
 1. translate the query into English
 2. search the vault in English retrieval space
-3. expand through notes, links, paper notes, and sources as usual
+3. expand through notes, links, source notes, and sources as usual
 4. answer in the user's language when appropriate
 
 Failure to match the original query language is not sufficient evidence that the vault lacks the answer.
@@ -63,8 +63,8 @@ For multilingual retrieval, prefer this order:
 3. English aliases
 4. English `search_terms`
 5. English summaries
-6. linked notes, backlinks, and paper notes
-7. raw PDFs only when the note layer is insufficient
+6. linked notes, backlinks, and source notes
+7. raw source documents only when the note layer is insufficient
 
 ## Index Guidance
 

@@ -25,7 +25,7 @@ All human-created new material enters through `Inbox/`.
 Agents should create new content directly in its destination folder unless explicitly simulating human capture.
 
 - processed notes that are ready for integration belong in `Notes/`
-- canonical paper PDFs belong in `Library/Papers/`
+- canonical source documents belong in `Library/Documents/`
 - system guidance belongs in `System/`
 
 Agents should not use `Inbox/` as a generic staging area for their own work.
@@ -35,8 +35,8 @@ Agents should not use `Inbox/` as a generic staging area for their own work.
 When processing `Inbox/`, agents should digest note-like items enough to move them onward rather than leaving them in `Inbox/` as unresolved notes.
 
 - move notes into `Notes/` only after they are processed enough to function in the knowledge layer
-- move PDF papers into `Library/Papers/` when they are identified as part of the paper corpus
-- create or update corresponding paper notes in `Notes/` as the semantic interface to papers
+- move source documents into `Library/Documents/` when they are identified as part of the canonical document corpus
+- create or update corresponding source notes in `Notes/` as the semantic interface to documents
 
 Processing enough means:
 
@@ -51,7 +51,7 @@ Required metadata should follow `System/Rules/processed-note-metadata.md`.
 Uncertainty should not force premature promotion, but it also should not leave note-like items indefinitely in `Inbox/`.
 
 - If a note-like item is rough or ambiguous, triage should still process it enough to become a note in `Notes/`, using the lightest reasonable placement and metadata.
-- If a paper's metadata is unclear, prefer minimal cleanup and deferred placement decisions over inventing false precision.
+- If a document's metadata is unclear, prefer minimal cleanup and deferred placement decisions over inventing false precision.
 - When unsure, preserve only genuinely unsupported or non-note items in `Inbox/` and add the minimum structure needed to support later review.
 
 Notes in `Notes/` are still open to future edits, links, metadata changes, and restructuring. Moving a note out of `Inbox/` means it is processed enough for integration, not that it is final.

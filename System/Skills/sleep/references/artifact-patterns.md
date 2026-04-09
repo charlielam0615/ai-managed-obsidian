@@ -11,7 +11,7 @@ A `sleep` artifact should reduce future comprehension cost with the smallest int
 Prefer:
 
 - a short local digest when one object is the bottleneck
-- a paper-note refresh when a source is important but weakly digested
+- a source-note refresh when a document is important but weakly digested
 - a cluster overview when the main value lies in relationships between notes
 
 ## Local Digest Pattern
@@ -28,19 +28,19 @@ Possible sections:
 
 Keep it short. The goal is orientation, not replacement of the original note.
 
-## Paper-Note Digest Pattern
+## Source-Note Digest Pattern
 
-Use when a paper note exists but is hard to scan or underdeveloped.
+Use when a source note exists but is hard to scan or underdeveloped.
 
 Possible sections:
 
 - citation snapshot
-- what the paper contributes
+- what the source contributes
 - most relevant claims for this vault
 - relationship to nearby notes
 - follow-up questions or unresolved caveats
 
-Do not turn the paper note into a giant literature-review template unless the material already justifies it.
+Do not turn the source note into a giant review template unless the material already justifies it.
 
 ## Cluster Overview Pattern
 
@@ -64,7 +64,7 @@ Use only for high-confidence links.
 Good examples:
 
 - adding a link to an obviously related note
-- linking a paper note to the note it clearly informs
+- linking a source note to the note it clearly informs
 - adding a short relation cue near an existing link
 
 Avoid speculative webs of weak links.
@@ -75,6 +75,6 @@ Prefer the smallest artifact that solves the comprehension problem:
 
 - if one note is opaque, add a local digest
 - if several notes are individually clear but collectively confusing, add a cluster overview
-- if a paper is central but its note is thin, improve the paper note before inventing a broader synthesis
+- if a source document is central but its note is thin, improve the source note before inventing a broader synthesis
 
 Do not create an overview note just because multiple notes exist.

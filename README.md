@@ -9,7 +9,7 @@ This repository is opinionated about a few things:
 - organization should be incremental and non-destructive
 - `Inbox/` is the only human intake point
 - `Notes/` is the semantic knowledge layer
-- `Library/Papers/` stores canonical PDF papers
+- `Library/Documents/` stores canonical source documents
 - agent workflows should be explicit, portable, and reviewable
 
 The repo currently focuses on the operating contract:
@@ -29,7 +29,7 @@ CLAUDE.md
 Inbox/
 Notes/
 Library/
-  Papers/
+  Documents/
 System/
   README.md
   Rules/
@@ -42,7 +42,7 @@ System/
 - `CLAUDE.md`: project memory and task-routing guide for Claude Code
 - `Inbox/`: single intake point for human-created new material
 - `Notes/`: main Markdown knowledge layer
-- `Library/Papers/`: canonical storage for PDF papers
+- `Library/Documents/`: canonical storage for source documents
 - `System/`: operating contract for humans and agents
 
 `Notes/Index.md` is the curated entry point into the note layer and should stay selective rather than exhaustive.
@@ -57,7 +57,7 @@ System/
 - `operating-model`
 - `inbox-and-placement`
 - `language-and-cross-language-retrieval`
-- `library-and-papers`
+- `library-and-documents`
 - `linking-and-naming`
 - `note-processing-lifecycle`
 - `processed-note-metadata`
@@ -74,8 +74,8 @@ These are policy files, not app code.
 `System/Skills/` currently includes:
 
 - `ai-writing`
+- `document-ingestion`
 - `inbox-triage`
-- `paper-ingestion`
 - `query-resolution`
 - `path-change-policy`
 - `obsidian-cli`
@@ -211,6 +211,7 @@ Helpful prompts:
 
 ```text
 $ai-writing help me draft an article about knowledge graph linking in my vault
+$document-ingestion ingest this PDF from Inbox into the document library
 $inbox-triage process the current inbox conservatively
 $sleep work on the most central stale note cluster
 ```

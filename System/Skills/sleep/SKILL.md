@@ -23,15 +23,15 @@ Its job is to reduce future reading cost by creating and strengthening semantic 
 
 - an explicit manual invocation
 - an optional scope, seed, or priority hint from the user
-- the current contents of `Notes/`, relevant papers, and any already-existing digest notes
+- the current contents of `Notes/`, relevant source documents, and any already-existing digest notes
 - operational state from `System/State/sleep/` when available
 
 ## Output
 
 One bounded consolidation pass that leaves behind processed, reviewable integration outputs in the knowledge layer, such as:
 
-- improved local digests inside notes or paper notes
-- refreshed paper-note summaries
+- improved local digests inside notes or source notes
+- refreshed source-note summaries
 - cluster overview notes
 - selective high-confidence Obsidian-compatible linking
 - new entry points into dense note regions
@@ -46,7 +46,7 @@ A sleep target is any bounded comprehension surface whose digestion would make t
 Target shapes include:
 
 - a single note
-- a single paper note
+- a single source note
 - a connected cluster of notes
 - a note neighborhood around a seed
 - a stale digest that needs refresh
@@ -60,7 +60,7 @@ These are all the same kind of work at different scales: read the source materia
 Preferred layers:
 
 - content index or overview note that helps a reader enter the region
-- raw note or raw paper
+- raw note or raw source document
 - local digest that makes one object easier to parse
 - cluster digest or overview note that explains how multiple objects fit together
 
@@ -77,9 +77,9 @@ Strong selection signals include:
 - no digest exists
 - an existing digest is stale
 - a note changed materially since its last digestion
-- a note or paper has many backlinks or is clearly central
+- a note or source document has many backlinks or is clearly central
 - a dense local cluster has no synthesis note
-- an important paper has a weak or missing paper note
+- an important source document has a weak or missing source note
 - the user explicitly named, pinned, or recently worked in a region
 
 Prefer a small number of high-value targets over many shallow touches.
@@ -88,7 +88,7 @@ Prefer a small number of high-value targets over many shallow touches.
 
 Digest locally when:
 
-- one note or paper is the main bottleneck
+- one note or source document is the main bottleneck
 - the surrounding region is weakly connected
 - a local digest would solve most of the comprehension problem
 
@@ -108,7 +108,7 @@ Start with the smallest scope that can produce a meaningful integration improvem
 3. Read `Notes/Index.md` when it exists and the pass would benefit from the current top-level map of the note layer.
 4. Select one or a few high-leverage targets, considering queued future-work signals alongside freshness, centrality, and user scope.
 5. Decide whether each target should be handled locally or as a cluster.
-6. Read the relevant notes and paper notes first. Read raw PDFs only when the note layer is insufficient.
+6. Read the relevant notes and source notes first. Read raw source documents only when the note layer is insufficient.
 7. Create or refresh the smallest integration artifact that would make the target materially easier to understand later.
 8. Add or improve high-confidence Obsidian-compatible links when they materially strengthen the note graph.
 9. Update `Notes/Index.md` only if the pass created or materially improved a processed entry point into the knowledge layer.
@@ -179,7 +179,7 @@ When the vault is immature:
 - work with weak metadata
 - prefer obvious local digests over ambitious synthesis
 - create small overview notes only where a region is already clearly dense
-- tolerate partially normalized paper notes
+- tolerate partially normalized source notes
 - rely on content, links, and local evidence rather than advanced retrieval systems
 
 Cold-start `sleep` should still leave behind clearer entry points than it found.
@@ -204,7 +204,7 @@ Read `references/state-model.md` and `references/signal-writing.md` before imple
 ## Relationship To Other Skills
 
 - `inbox-triage`: moves new material into clearer destinations; `sleep` works on existing material after intake.
-- `paper-ingestion`: normalizes PDFs and paper notes; `sleep` improves the semantic integration and connected understanding around them later.
+- `document-ingestion`: normalizes source documents and source notes; `sleep` improves the semantic integration and connected understanding around them later.
 - `query-resolution`: answers questions from the current vault; queries and deep reads may also create future sleep signals that help later integration work.
 - `path-change-policy`: governs whether path churn is justified; `sleep` should normally avoid path churn and delegate that decision when needed.
 

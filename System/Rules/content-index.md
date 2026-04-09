@@ -41,7 +41,7 @@ Include only notes or pages that materially improve navigation, such as:
 
 - overview notes
 - topic hubs
-- key paper notes
+- key source notes
 - synthesis notes
 - processed question notes that function as entry points
 - other stable entry points that help a future reader decide where to go next
@@ -111,7 +111,7 @@ Agents should update the index only when navigation materially changes.
 Good reasons to update it include:
 
 - a new overview or synthesis note becomes a real entry point
-- a paper note becomes central enough to revisit repeatedly
+- a source note becomes central enough to revisit repeatedly
 - a processed query result is filed back into `Notes/`
 - a `sleep` pass creates a better top-level entry into a dense note region
 

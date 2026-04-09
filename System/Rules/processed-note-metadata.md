@@ -55,7 +55,7 @@ Additional metadata is allowed when useful, such as:
 - source links
 - timestamps
 - topic-specific fields
-- paper-specific bibliographic metadata
+- document-specific source metadata
 
 Do not require optional metadata just to move a note out of `Inbox/`.
 

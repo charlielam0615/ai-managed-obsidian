@@ -34,7 +34,7 @@ Write a signal when:
 
 - a query or deep read surfaces missing links, thin metadata, or needed overview/index follow-up
 - a note is promoted from `Inbox/` into `Notes/` but likely needs later linking or broader integration work
-- a paper note is created or updated and likely needs later linking, overview integration, or sleep digestion
+- a source note is created or updated and likely needs later linking, overview integration, or sleep digestion
 - a `sleep` pass discovers follow-up work that it intentionally does not complete in the current bounded run
 
 ## When Not To Write A Signal
@@ -70,7 +70,7 @@ Optional fields:
 - `note_path`: absolute or vault-relative note path, whichever is used consistently by the current state model
 - `interaction_type`: what happened, such as `create`, `edit`, `move`, `metadata_change`, `deep_read`, `query`, or `reorg`
 - `observed_at`: timestamp of the interaction in ISO-like form
-- `source`: where the interaction came from, such as `user`, `agent`, `query-resolution`, `inbox-triage`, `paper-ingestion`, or `sleep`
+- `source`: where the interaction came from, such as `user`, `agent`, `query-resolution`, `inbox-triage`, `document-ingestion`, or `sleep`
 - `priority_hint`: lightweight urgency or importance label, such as `low`, `medium`, or `high`
 - `follow_up_kind`: the kind of future work, such as `linking`, `metadata`, `index`, `overview`, or `revisit`
 - `context_note`: optional anchor note that gives useful surrounding context
@@ -109,7 +109,7 @@ The first workflows that should explicitly produce signals are:
 
 - `query-resolution`
 - `inbox-triage`
-- `paper-ingestion`
+- `document-ingestion`
 - `sleep`
 
 Other note-touching workflows may adopt the same protocol later.

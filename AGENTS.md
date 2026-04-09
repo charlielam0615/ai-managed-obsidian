@@ -16,7 +16,7 @@ The most important constraints are:
 
 - `Inbox/` is the single human intake point. Do not use it as a generic agent staging area.
 - Processed notes that are ready for integration belong in `Notes/`.
-- Canonical paper PDFs belong in `Library/Papers/`.
+- Canonical source documents belong in `Library/Documents/`.
 - System guidance belongs in `System/`.
 - Prefer note and link structure over deep folder expansion.
 - Prefer curated index and overview notes before expanding folder hierarchy.
@@ -29,7 +29,7 @@ Do not improvise a fresh workflow when an existing skill already matches the tas
 
 - Broad vault questions: read `Notes/Index.md` first, then follow `System/Skills/query-resolution/SKILL.md`.
 - Inbox processing: follow `System/Skills/inbox-triage/SKILL.md`.
-- Paper or PDF ingestion: follow `System/Skills/paper-ingestion/SKILL.md`.
+- Document or PDF ingestion: follow `System/Skills/document-ingestion/SKILL.md`.
 - AI-authored article or draft writing: follow `System/Skills/ai-writing/SKILL.md`.
 - Path-sensitive note operations: follow `System/Skills/obsidian-cli/SKILL.md` and `System/Skills/path-change-policy/SKILL.md` when rename or move decisions are involved.
 - Bounded maintenance or consolidation: follow `System/Skills/sleep/SKILL.md`.
@@ -60,14 +60,14 @@ Do not:
 
 - turn it into a complete catalog
 - use it as an operational log
-- append every new note or paper to it automatically
+- append every new note or document to it automatically
 
 ## Completion Evidence
 
 When a task matches one of the workflows above, the final report should include enough evidence to show the workflow was followed.
 
-- Broad vault questions: say whether `Notes/Index.md` was consulted, whether the query was translated into English for retrieval, which notes were the main anchors, and whether raw PDFs were needed.
-- Inbox or paper ingestion: report the final note or PDF destination, duplicate-check outcome when relevant, whether required metadata and navigation integration were completed, and whether the index changed.
+- Broad vault questions: say whether `Notes/Index.md` was consulted, whether the query was translated into English for retrieval, which notes were the main anchors, and whether raw source documents were needed.
+- Inbox or document ingestion: report the final note or document destination, duplicate-check outcome when relevant, whether required metadata and navigation integration were completed, and whether the index changed.
 - Sleep or maintenance passes: report the scope, links or integration work added or refreshed, whether the index changed, and what future sleep signals were recorded operationally.
 - Path-sensitive note edits: say whether Obsidian-aware operations were used and, if not, why a direct edit was safe.
 

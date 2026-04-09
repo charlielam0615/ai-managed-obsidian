@@ -30,7 +30,7 @@ A rename or move is justified when it materially improves the vault, for example
 
 - the current name is misleading or excessively noisy
 - an imported filename is unreadable or unstable
-- a note or paper is clearly in the wrong coarse destination
+- a note or document is clearly in the wrong coarse destination
 - a conflict or ambiguity between items needs to be resolved
 
 Cosmetic preference alone is usually not enough.
@@ -76,4 +76,4 @@ If verification is weak, do not continue with additional path churn.
 
 - `obsidian-cli`
 - `inbox-triage`
-- `paper-ingestion`
+- `document-ingestion`

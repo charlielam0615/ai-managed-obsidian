@@ -22,7 +22,7 @@ Do not force material into a taxonomy just to make it look organized.
 
 - If the right placement is unclear, defer.
 - If a note spans multiple themes, prefer links and local metadata over inventing new folders.
-- If a paper is not fully understood yet, preserve it without overclassifying it.
+- If a document is not fully understood yet, preserve it without overclassifying it.
 
 ## When To Defer
 
