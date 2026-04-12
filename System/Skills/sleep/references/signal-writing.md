@@ -1,24 +1,25 @@
 # Sleep Signal Writing Protocol
 
-This reference defines how workflows should record future sleep work into `System/State/sleep/queue/`.
+This reference defines how workflows should record future sleep work into the sleep queue state under `System/State/sleep/queue/`.
 
 The goal is to make future integration work explicit, append-only, and reviewable without turning state into the semantic layer.
 
 See `signal-examples.md` for concrete example records.
 
-See `System/State/sleep/runs/example-run.json` and `System/State/sleep/history/example-history.json` for concrete examples of how later sleep runs record signal outcomes.
+See `System/Skills/sleep/references/examples/example-run.json` and `System/Skills/sleep/references/examples/example-history.json` for concrete examples of how later sleep runs record signal outcomes.
 
 ## Canonical Location
 
 Write future sleep signals under:
 
 ```text
-System/State/sleep/queue/
+System/State/sleep/queue/pending/
 ```
 
 Use one JSON file per signal.
 
 Do not maintain a shared mutable queue file in the first version.
+Active pending work belongs in `queue/pending/`. Parked unresolved work belongs in `queue/deferred/`. Resolved signals move to `archive/resolved/YYYY/MM/` and receive matching receipts in `history/YYYY/MM/`.
 
 ## Purpose
 
@@ -52,6 +53,9 @@ Prefer one clear actionable signal over repeated noise.
 
 Each signal file should contain one JSON object with:
 
+- `state_version`
+- `signal_id`
+- `dedupe_key`
 - `note_path`
 - `interaction_type`
 - `observed_at`
@@ -68,6 +72,9 @@ Optional fields:
 ## Field Guidance
 
 - `note_path`: absolute or vault-relative note path, whichever is used consistently by the current state model
+- `state_version`: current schema version for queue signals; use `2`
+- `signal_id`: canonical UUID4 identifier for this signal
+- `dedupe_key`: SHA-256 over the canonical duplicate-suppression payload
 - `interaction_type`: what happened, such as `create`, `edit`, `move`, `metadata_change`, `deep_read`, `query`, or `reorg`
 - `observed_at`: timestamp of the interaction in ISO-like form
 - `source`: where the interaction came from, such as `user`, `agent`, `query-resolution`, `inbox-triage`, `document-ingestion`, or `sleep`
@@ -82,16 +89,16 @@ Optional fields:
 Use timestamp-first filenames with a short readable suffix:
 
 ```text
-YYYY-MM-DDTHH-MM-SSZ-<source>-<short-slug>.json
+YYYY-MM-DDTHH-MM-SSZ-<source>-<short-slug>--<signal_id>.json
 ```
 
 Example:
 
 ```text
-2026-04-07T12-34-56Z-query-resolution-knowledge-systems.json
+2026-04-07T12-34-56Z-query-resolution-knowledge-systems--11111111-1111-4111-8111-111111111111.json
 ```
 
-The filename is an operational identifier only. Meaning belongs inside the JSON body.
+The filename is storage only. Canonical identity lives in `signal_id`.
 
 ## Resolution And Lifecycle
 
@@ -102,6 +109,7 @@ Signals may later be:
 - superseded by a clearer or more complete signal
 
 Use run records or history entries to note that outcome. Do not overload the queue entry itself with semantic meaning.
+For queue-related actions, history receipts should reference `signal_id` and `signal_archive_path`. Consumers should determine active work by scanning `queue/pending/`, not by subtracting history from a mixed queue directory.
 
 ## Producer Set For The First Version
 
@@ -110,6 +118,21 @@ The first workflows that should explicitly produce signals are:
 - `query-resolution`
 - `inbox-triage`
 - `document-ingestion`
+- `ai-writing`
 - `sleep`
 
 Other note-touching workflows may adopt the same protocol later.
+
+## Canonical Source Values
+
+Use these canonical `source` values in new records:
+
+- `query-resolution`
+- `inbox-triage`
+- `document-ingestion`
+- `ai-writing`
+- `sleep`
+- `user`
+- `agent`
+
+`paper-ingestion` is a legacy value from older records and should be normalized to `document-ingestion` in new or edited queue entries.

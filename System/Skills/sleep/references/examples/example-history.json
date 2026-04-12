@@ -1,9 +1,10 @@
 {
   "timestamp": "2026-04-07T16:24:05Z",
   "run_id": "sleep-run-2026-04-07T16-00-00Z",
+  "signal_id": "11111111-1111-4111-8111-111111111111",
   "target_id": "Notes/Knowledge Systems.md",
   "action": "resolved_queue_signal",
-  "signal_path": "System/State/sleep/queue/2026-04-07T12-34-56Z-query-resolution-knowledge-systems.json",
+  "signal_archive_path": "System/State/sleep/archive/resolved/2026/04/2026-04-07T12-34-56Z-query-resolution-knowledge-systems--11111111-1111-4111-8111-111111111111.json",
   "resulting_artifact_path": "Notes/Knowledge Systems.md",
   "outcome": "Added high-confidence links and integrated the note into a stronger overview surface during sleep."
 }

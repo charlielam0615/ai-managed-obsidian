@@ -56,15 +56,25 @@ System/State/sleep/
   targets/
   clusters/
   queue/
+    pending/
+    deferred/
+  archive/
+    resolved/
+      YYYY/
+        MM/
   runs/
   history/
+    YYYY/
+      MM/
 ```
 
 You do not need this exact directory structure if a later implementation finds a cleaner equivalent, but the model should preserve these responsibilities.
 
 Read `signal-writing.md` for the canonical queue write protocol and `signal-examples.md` for concrete example records.
 
-See `System/State/sleep/runs/example-run.json` and `System/State/sleep/history/example-history.json` for concrete examples of how later sleep runs record signal resolution operationally.
+Runtime directories under `System/State/sleep/` should contain live operational records only. Reference examples belong under `System/Skills/sleep/references/examples/`, not alongside active queue, run, or history files.
+
+See `System/Skills/sleep/references/examples/example-run.json` and `System/Skills/sleep/references/examples/example-history.json` for concrete examples of how later sleep runs record signal resolution operationally.
 
 ## Targets
 
@@ -96,6 +106,14 @@ Possible fields:
 - last run id
 
 Targets may also carry lightweight integration status such as whether linking, metadata improvement, or navigation follow-up is still pending.
+
+Canonical target fingerprints should be content-based, such as:
+
+- `note_content_sha256`
+- `source_content_sha256`
+- `attachment_content_sha256`
+
+Legacy mtime-only fingerprints may remain in historical records during migration, but new or refreshed target records should prefer content hashes.
 
 ## Clusters
 
@@ -132,11 +150,21 @@ Purpose:
 
 This can be lightweight. It does not need to be a job scheduler.
 
-Queue entries should be written as one JSON file per signal under `System/State/sleep/queue/`.
+Queue entries should be written as one JSON file per signal under `System/State/sleep/queue/pending/` or `System/State/sleep/queue/deferred/`.
+
+The active queue is structural:
+
+- active work lives in `queue/pending/`
+- deferred unresolved work lives in `queue/deferred/`
+- resolved signal records move to `archive/resolved/YYYY/MM/`
+
+Signal files stay immutable once written, but queue membership is allowed to change by moving a signal between the active queue, deferred queue, and resolved archive.
 
 Useful contents:
 
-- target id
+- state version
+- signal id
+- dedupe key
 - priority label or score
 - selection reason
 - queued at
@@ -148,6 +176,22 @@ Useful contents:
 - follow-up kind such as `linking`, `metadata`, `index`, `overview`, or `revisit`
 - optional context note or seed query
 - optional reason
+
+Producer names should come from a small canonical vocabulary. Current canonical values are:
+
+- `query-resolution`
+- `inbox-triage`
+- `document-ingestion`
+- `ai-writing`
+- `sleep`
+- `user`
+- `agent`
+
+Signal identity should be stable:
+
+- `signal_id` is the canonical identifier
+- file paths are storage details only
+- `dedupe_key` is the canonical duplicate-suppression key
 
 ## Runs
 
@@ -172,6 +216,8 @@ Useful fields:
 - completed at
 - scope hint
 - selected targets
+- queue signal ids considered
+- queue signal ids written
 - completed targets
 - deferred targets
 - checkpoint note
@@ -218,8 +264,10 @@ Useful entries:
 
 - timestamp
 - run id
+- signal id for queue-related actions
 - target id or cluster id
 - action taken
+- signal archive path for queue-related actions
 - resulting artifact path
 - short outcome label
 
@@ -229,12 +277,11 @@ Useful entries:
 
 Practical approaches include:
 
-- file modification times
 - content hashes
 - lightweight fingerprints derived from relevant source notes
 - cluster fingerprints derived from member fingerprints
 
-Do not use a brittle scheme that requires perfect metadata. The goal is to detect meaningful change well enough to avoid obvious redundant work.
+Legacy file modification times may remain in old records during migration, but new or refreshed records should prefer content hashes. Do not use a brittle scheme that requires perfect metadata. The goal is to detect meaningful change well enough to avoid obvious redundant work.
 
 ## Deferrals
 
@@ -264,3 +311,9 @@ That means:
 - state can accelerate work, but must not be the only place where meaning lives
 - losing state should not destroy the vault's actual understanding
 - rebuilding state should recover operational posture, not invent missing semantic artifacts
+
+When no prior sleep state exists, the initial run should bootstrap it from the vault by:
+
+- selecting targets from explicit user scope, `Notes/Index.md`, and obvious high-leverage note regions
+- writing any needed queue signals for unfinished integration work
+- creating the first run record plus any target, cluster, and history records justified by the pass

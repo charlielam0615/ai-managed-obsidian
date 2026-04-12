@@ -139,6 +139,7 @@ After ingestion:
 - confirm the source note exists or was updated in `Notes/`
 - confirm the note and document still correspond after any rename
 - confirm duplicate handling did not create a confusing parallel copy
+- confirm any deferred linking, overview, or broader integration work was recorded as one or more sleep queue signals when needed
 
 ## Related Skills
 

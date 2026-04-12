@@ -40,8 +40,14 @@ Sleep should create and strengthen integrated semantic scaffolding in the knowle
 - The goal is better navigability, better synthesis, stronger linking, and better future digestion.
 - `System/` should define policy, not absorb knowledge content.
 
-## Deferred Implementation Detail
+## Implementation Detail
 
 This file defines policy only.
 
-Detailed sleep workflows, execution logic, and runtime state are intentionally deferred and may later live under `System/Skills/` and `System/State/`.
+Detailed sleep workflows live under `System/Skills/sleep/`, and bounded operational memory for sleep runs lives under `System/State/sleep/`.
+
+Those implementation details must remain subordinate to this policy:
+
+- note-layer outputs remain the source of semantic value
+- sleep state remains operational memory only
+- sleep continues to be bounded, incremental, and non-destructive

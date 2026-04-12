@@ -105,6 +105,7 @@ Start with the smallest scope that can produce a meaningful integration improvem
 
 1. Confirm that `sleep` was explicitly requested and set a bounded scope.
 2. Read the current `sleep` state if it exists to avoid blind reprocessing.
+   If no usable state exists yet, treat the vault itself as the source of truth for target selection and bootstrap the missing state during the run.
 3. Read `Notes/Index.md` when it exists and the pass would benefit from the current top-level map of the note layer.
 4. Select one or a few high-leverage targets, considering queued future-work signals alongside freshness, centrality, and user scope.
 5. Decide whether each target should be handled locally or as a cluster.
@@ -114,6 +115,7 @@ Start with the smallest scope that can produce a meaningful integration improvem
 9. Update `Notes/Index.md` only if the pass created or materially improved a processed entry point into the knowledge layer.
 10. Update metadata, hubs, or overview notes when they materially improve integration quality.
 11. Update `System/State/sleep/` so a later run can tell what changed, what was deferred, what should be revisited next, and which note-affecting interactions created future work.
+    Treat the active queue structurally: current work lives in `queue/pending/`, parked unresolved work lives in `queue/deferred/`, and resolved signal records move to `archive/resolved/` with matching receipts in partitioned `history/`.
 12. If the pass discovers additional future work that it intentionally does not complete now, write one or more queue signals using `references/signal-writing.md`.
 
 Use the `obsidian-cli` skill for note-aware retrieval or path-sensitive note operations when practical, but `sleep` is not primarily a CLI skill.
@@ -199,6 +201,10 @@ State is used to:
 
 State must not contain the actual summaries, synthesis, or relationships that belong in `Notes/`.
 
+If no prior state exists, `sleep` must still proceed conservatively from `Notes/Index.md`, nearby notes, and any explicit user scope, then write the first run, target, cluster, and history records as part of the pass.
+
+Queue signals use stable `signal_id` identifiers. File paths are storage details only and must not be treated as the canonical identity of a signal.
+
 Read `references/state-model.md` and `references/signal-writing.md` before implementing or modifying the state layer.
 
 ## Relationship To Other Skills
@@ -217,6 +223,7 @@ Before ending a `sleep` pass:
 - confirm new artifacts live in the knowledge layer, not hidden state
 - confirm unchanged or low-confidence targets were skipped or deferred rather than forced
 - confirm the state layer was updated only with operational memory
+- confirm any unfinished integration work was either completed in the note layer or emitted as one or more queue signals
 
 ## Supporting Files
 

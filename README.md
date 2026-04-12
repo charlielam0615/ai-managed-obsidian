@@ -9,7 +9,7 @@ This repository is opinionated about a few things:
 - organization should be incremental and non-destructive
 - `Inbox/` is the only human intake point
 - `Notes/` is the semantic knowledge layer
-- `Library/Documents/` stores canonical source documents
+- `Library/Papers/` stores canonical PDF papers
 - agent workflows should be explicit, portable, and reviewable
 
 The repo currently focuses on the operating contract:
@@ -29,7 +29,7 @@ CLAUDE.md
 Inbox/
 Notes/
 Library/
-  Documents/
+  Papers/
 System/
   README.md
   Rules/
@@ -42,7 +42,7 @@ System/
 - `CLAUDE.md`: project memory and task-routing guide for Claude Code
 - `Inbox/`: single intake point for human-created new material
 - `Notes/`: main Markdown knowledge layer
-- `Library/Documents/`: canonical storage for source documents
+- `Library/Papers/`: canonical storage for PDF papers
 - `System/`: operating contract for humans and agents
 
 `Notes/Index.md` is the curated entry point into the note layer and should stay selective rather than exhaustive.
@@ -57,7 +57,7 @@ System/
 - `operating-model`
 - `inbox-and-placement`
 - `language-and-cross-language-retrieval`
-- `library-and-documents`
+- `library-and-papers`
 - `linking-and-naming`
 - `note-processing-lifecycle`
 - `processed-note-metadata`
@@ -73,10 +73,10 @@ These are policy files, not app code.
 
 `System/Skills/` currently includes:
 
-- `ai-writing`
-- `document-ingestion`
 - `inbox-triage`
+- `document-ingestion`
 - `query-resolution`
+- `ai-writing`
 - `path-change-policy`
 - `obsidian-cli`
 - `sleep`
@@ -86,7 +86,7 @@ These are packaged as Agent Skills directories with `SKILL.md` entrypoints.
 
 Notable addition:
 
-- `ai-writing` helps the agent outline, draft, revise, and polish article-like writing while keeping outputs inside the vault's note-processing model.
+- `ai-writing` helps agents outline, draft, revise, and polish substantial written pieces directly into the vault while respecting the `Inbox/` vs `Notes/` processing model and note metadata requirements.
 - `wechat-article-download` captures `mp.weixin.qq.com` article URLs into `Inbox/` as readable Markdown notes, preserving source metadata and extracted article body for later triage.
 
 ## Design Principles
@@ -140,13 +140,15 @@ Concrete examples for processed-note metadata live in [processed-note-metadata-e
 
 This repo currently defines the vault contract, core rules, and first-pass skills.
 
+It now includes an initial runtime state layer for bounded sleep maintenance under `System/State/sleep/`.
+
 It does not yet fully implement:
 
-- a populated `System/State/` runtime layer
+- broader runtime state beyond the current `sleep` workflow
 - automation packaging or plugin distribution
 - opinionated note templates beyond what the skills describe
 
-That is intentional. The goal is to start with a clean, understandable base.
+That is intentional. The goal is still to keep the system clean and understandable while adding workflow state only where it materially improves bounded re-runs.
 
 ## Using The Vault In Obsidian
 
@@ -210,9 +212,8 @@ Use this when you want to turn the repository into your own working vault quickl
 Helpful prompts:
 
 ```text
-$ai-writing help me draft an article about knowledge graph linking in my vault
-$document-ingestion ingest this PDF from Inbox into the document library
 $inbox-triage process the current inbox conservatively
+$ai-writing draft a note-backed article in Notes/ about <topic> for <audience>
 $sleep work on the most central stale note cluster
 ```
 

@@ -83,6 +83,7 @@ After any relocation:
 - confirm the item exists in the destination
 - confirm the source copy was not left behind unintentionally
 - confirm any note-aware rename or move behaved as expected
+- confirm any unfinished integration work was either completed immediately or captured as one or more sleep queue signals
 
 If verification is weak, stop before doing more cleanup.
 

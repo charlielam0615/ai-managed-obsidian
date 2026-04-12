@@ -6,13 +6,15 @@ This tree is scaffolding for stateful workflows, not the semantic knowledge laye
 
 Use it for:
 
-- queue signals under `queue/`
+- queue signals under `queue/pending/` and `queue/deferred/`
 - run records under `runs/`
-- history entries under `history/`
+- history entries under partitioned `history/YYYY/MM/`
+- resolved signal records under `archive/resolved/YYYY/MM/`
 - future operational tracking under `targets/` and `clusters/`
 
 Do not treat this tree as the place where knowledge, links, summaries, or synthesis live.
 
 Those belong in `Notes/`.
 
-The example records in this tree are references only. They are not active runtime state.
+This tree should contain active runtime state only.
+Reference examples live under `System/Skills/sleep/references/examples/`.
