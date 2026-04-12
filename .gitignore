@@ -1,5 +1,4 @@
 .DS_Store
-.gitignore
 __pycache__/
 *.pyc
 
@@ -9,18 +8,3 @@ __pycache__/
 
 # Vault/app configuration rather than note content
 .obsidian/
-
-# Harness guidance and system contract files
-AGENTS.md
-CLAUDE.md
-README.md
-Inbox/
-System/
-!System/
-!System/Rules/
-!System/Rules/*.md
-!System/Skills/
-!System/Skills/*/
-!System/Skills/*/SKILL.md
-!System/Skills/*/references/
-!System/Skills/*/references/*.md
