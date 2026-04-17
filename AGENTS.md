@@ -52,6 +52,8 @@ Agents should:
 
 - read it early for broad, exploratory, or synthesis-oriented work
 - treat it as a navigation surface, not as proof that nothing else exists
+- treat `Core Topics` as durable cluster entrypoints, not as a generic bucket for any topic-like note
+- treat `Synthesis And Overviews` as the home for bridge notes, comparisons, subcluster overviews, and other non-top-level synthesis
 - update it only when navigation materially improves
 - treat index reconciliation as a required workflow step for `inbox-triage` and `sleep`
 - end every `inbox-triage` and `sleep` run with an explicit `Index decision`:

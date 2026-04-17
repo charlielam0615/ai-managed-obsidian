@@ -53,6 +53,37 @@ Each entry should stay lightweight:
 
 Index descriptions should remain in English by default, even when the linked note is not in English.
 
+## Section Semantics
+
+When `Notes/Index.md` uses the current top-level sections, interpret them narrowly:
+
+- `Core Topics`: durable cluster entrypoints
+- `Synthesis And Overviews`: bridge notes, comparisons, subcluster overviews, and other non-top-level synthesis
+- `Key Paper Notes`: paper notes that are individually valuable entry points even when they are not cluster anchors
+
+A `Core Topics` note should be:
+
+- the best top-level entry surface into a stable note region
+- clearly bounded enough to remain useful over time
+- linked outward to multiple nearby notes, sources, or subregions
+- more valuable in top-level navigation than leaving it only in generic overview space
+
+Do not promote a note into `Core Topics` merely because it is recent, interesting, or overview-shaped.
+
+Bridge notes, comparison notes, and narrow subcluster overviews should normally remain in `Synthesis And Overviews`.
+
+## Core Topic Promotion Test
+
+Before placing a note in `Core Topics`, confirm all of the following:
+
+1. The note is the main entry surface for a stable cluster rather than one supporting note among many.
+2. The cluster boundary is coherent and likely to remain useful.
+3. The note links out to multiple related notes, sources, or subregions.
+4. Promoting it improves top-level navigation more than leaving it in `Synthesis And Overviews`.
+5. The note is not primarily a bridge, comparison, or narrow subcluster note.
+
+If any of these are false, do not promote the note into `Core Topics` yet.
+
 ## Bootstrap Section
 
 `Notes/Index.md` may contain one temporary bootstrap section for newly processed notes.
@@ -134,6 +165,12 @@ Each such run must end with one explicit outcome:
 - `updated Notes/Index.md`
 - `used existing navigation surface: <path>`
 - `deferred with sleep signal: <signal_id>`
+
+When `updated Notes/Index.md` is the outcome, the workflow must also choose the correct section intentionally rather than appending mechanically. In particular:
+
+- durable cluster entrypoints belong in `Core Topics`
+- bridge notes, comparisons, and non-top-level overviews belong in `Synthesis And Overviews`
+- paper notes that are valuable standalone entry points belong in `Key Paper Notes`
 
 If an agent claims an existing navigation surface instead of updating the index:
 

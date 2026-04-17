@@ -85,6 +85,10 @@ One or more of:
    - existing topic hub or overview note
    - existing curated index section
    - bootstrap section in `Notes/Index.md`
+   If `Notes/Index.md` is updated during this step, choose the section intentionally:
+   - `Core Topics` only for a stable durable cluster entrypoint
+   - `Synthesis And Overviews` for bridge notes, comparisons, and non-top-level overviews
+   - bootstrap for temporary discoverability when no better surface exists yet
 9. If later integration work remains, record one or more queue signals using `System/Skills/sleep/references/signal-writing.md`.
 
 ## Writing Principles
@@ -136,6 +140,7 @@ Before finishing:
 - confirm the note lives in the correct destination
 - confirm the minimum metadata is present if the output is in `Notes/`
 - confirm the note is incorporated into the appropriate navigation surface
+- confirm any direct index update did not promote a bridge or other non-top-level writing note into `Core Topics`
 - confirm any unfinished integration work is represented by queue signals when needed
 
 ## Related Skills

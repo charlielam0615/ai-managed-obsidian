@@ -118,6 +118,14 @@ When integrating the source note into navigation, use this fallback order:
 
 Update `Notes/Index.md` only when the source note clearly becomes a processed entry point, such as a key source note or a topic anchor. Do not add every ingested document to the index.
 
+If `Notes/Index.md` is updated during document ingestion, choose the section intentionally:
+
+- `Key Paper Notes` for strong standalone paper or source-note entry points
+- an existing relevant curated section when the source note clearly belongs there
+- not `Core Topics` unless the source note truly functions as the main top-level cluster anchor, which should be rare
+
+Do not treat ordinary strong paper notes as `Core Topics` by default.
+
 Bootstrap fallback is acceptable for ordinary document notes during cold start or hub absence.
 
 If the new or updated source note likely needs later linking, overview integration, or broader sleep digestion, record one or more queue signals using `System/Skills/sleep/references/signal-writing.md`.
@@ -139,6 +147,7 @@ After ingestion:
 - confirm the source note exists or was updated in `Notes/`
 - confirm the note and document still correspond after any rename
 - confirm duplicate handling did not create a confusing parallel copy
+- confirm any direct index update used the correct section rather than promoting an ordinary document note into `Core Topics`
 - confirm any deferred linking, overview, or broader integration work was recorded as one or more sleep queue signals when needed
 
 ## Related Skills

@@ -42,6 +42,8 @@ Do not improvise a fresh workflow when an existing skill already matches the tas
 
 - Read it early for broad, exploratory, or synthesis-oriented work.
 - Treat it as a navigation surface, not as proof that nothing else exists.
+- Treat `Core Topics` as durable cluster entrypoints rather than a generic topic bucket.
+- Treat `Synthesis And Overviews` as the home for bridge notes, comparisons, subcluster overviews, and other non-top-level synthesis.
 - Update it only when navigation materially improves.
 - Treat index reconciliation as a required workflow step for `inbox-triage` and `sleep`.
 - End every `inbox-triage` and `sleep` run with an explicit `Index decision`:
