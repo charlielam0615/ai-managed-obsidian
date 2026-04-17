@@ -43,6 +43,9 @@ class SleepStateV2Tests(unittest.TestCase):
     def tearDown(self) -> None:
         self.temp_dir.cleanup()
 
+    def test_repo_root_uses_current_checkout(self) -> None:
+        self.assertEqual(REPO_ROOT, Path(__file__).resolve().parents[4])
+
     def run_script(self, script: Path) -> subprocess.CompletedProcess[str]:
         return subprocess.run(
             [sys.executable, str(script), "--root", str(self.root)],

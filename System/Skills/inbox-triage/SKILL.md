@@ -57,8 +57,12 @@ Do not turn triage into full synthesis, taxonomy building, or broad cleanup.
   - existing topic hub or overview note
   - existing relevant curated index section
   - bootstrap section in `Notes/Index.md`
+- Treat navigation integration as complete only when a concrete written link exists in that surface.
+- If relying on an existing topic hub, overview note, or curated index section, that surface must already link to the promoted note or be updated in the same run.
+- If no better navigation surface exists yet, update the bootstrap section in `Notes/Index.md` during the same run rather than treating navigation as implicitly complete.
 - Do not invent a new topic hub prematurely just to satisfy the placement rule.
 - If the bootstrap section is already at its cap, remove the oldest bootstrap entry that still lacks a better navigation surface rather than blocking promotion.
+- If neither a safe existing-surface update nor a safe bootstrap update can be completed in the same run, do not silently treat promotion as complete. Write a sleep signal and report the explicit `Index decision` for the run.
 - If follow-up integration work remains after promotion, record one or more queue signals using `System/Skills/sleep/references/signal-writing.md`.
 
 For note-like items, uncertainty is not a reason to leave them in `Inbox/`.
@@ -83,6 +87,7 @@ After any relocation:
 - confirm the item exists in the destination
 - confirm the source copy was not left behind unintentionally
 - confirm any note-aware rename or move behaved as expected
+- confirm the run ended with an explicit `Index decision`: `updated Notes/Index.md`, `used existing navigation surface: <path>`, or `deferred with sleep signal: <signal_id>`
 - confirm any unfinished integration work was either completed immediately or captured as one or more sleep queue signals
 
 If verification is weak, stop before doing more cleanup.

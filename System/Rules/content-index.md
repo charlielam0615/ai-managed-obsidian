@@ -111,15 +111,39 @@ Agents should update the index only when navigation materially changes.
 Good reasons to update it include:
 
 - a new overview or synthesis note becomes a real entry point
+- a new bridge note becomes the clearest entry point into a dense region
 - a source note becomes central enough to revisit repeatedly
 - a processed query result is filed back into `Notes/`
 - a `sleep` pass creates a better top-level entry into a dense note region
+- a newly promoted note still lacks any better navigation surface, in which case the bootstrap section should be updated during promotion
+- an existing bootstrap entry now has a stronger overview, hub, or local navigation surface and should be replaced or removed
+- an existing index description or section placement became stale because the note's role changed materially
 
 Do not update the index for every routine note edit or every new note.
 
 Important non-English notes may still appear when they are real entry points. Prefer English descriptions that help agents and humans retrieve them from the shared English navigation surface.
 
 When no better navigation surface exists yet, newly processed notes may temporarily enter the bootstrap section even if they are not yet true long-term entry points.
+
+## Workflow Decision Requirement
+
+For `inbox-triage` and `sleep`, reconciling touched notes against the index is a required workflow step, not optional cleanup.
+
+Each such run must end with one explicit outcome:
+
+- `updated Notes/Index.md`
+- `used existing navigation surface: <path>`
+- `deferred with sleep signal: <signal_id>`
+
+If an agent claims an existing navigation surface instead of updating the index:
+
+- the surface must already link to the relevant note, or be updated in the same run
+- the path should be reported explicitly in completion evidence
+
+If neither an index update nor a safe existing-surface update can be completed in the same bounded run:
+
+- write a sleep signal instead of silently treating navigation as complete
+- report the signal id explicitly
 
 ## Maintenance Rules
 
@@ -156,3 +180,8 @@ After updating the index:
 - confirm each description still matches the linked page
 - confirm the result is still readable in one pass
 - confirm the update improved navigation rather than merely adding more text
+
+After a workflow decides not to update the index:
+
+- confirm the cited existing navigation surface exists and still serves as a real entry path
+- confirm any deferral has a concrete sleep signal id rather than a vague future intention

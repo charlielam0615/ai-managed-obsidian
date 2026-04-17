@@ -112,11 +112,19 @@ Start with the smallest scope that can produce a meaningful integration improvem
 6. Read the relevant notes and source notes first. Read raw source documents only when the note layer is insufficient.
 7. Create or refresh the smallest integration artifact that would make the target materially easier to understand later.
 8. Add or improve high-confidence Obsidian-compatible links when they materially strengthen the note graph.
-9. Update `Notes/Index.md` only if the pass created or materially improved a processed entry point into the knowledge layer.
-10. Update metadata, hubs, or overview notes when they materially improve integration quality.
-11. Update `System/State/sleep/` so a later run can tell what changed, what was deferred, what should be revisited next, and which note-affecting interactions created future work.
+9. Perform an explicit index freshness audit for the touched region:
+   - which touched notes still depend only on bootstrap navigation
+   - whether a new or strengthened overview now deserves promotion into `Notes/Index.md`
+   - whether any existing index description or placement became stale
+10. Make an explicit `Index decision` for the run:
+   - `updated Notes/Index.md`
+   - `used existing navigation surface: <path>`
+   - `deferred with sleep signal: <signal_id>`
+11. Update `Notes/Index.md` when the pass created or materially improved a processed entry point, when a stronger overview should replace bootstrap-only navigation, or when an existing entry became stale.
+12. Update metadata, hubs, or overview notes when they materially improve integration quality.
+13. Update `System/State/sleep/` so a later run can tell what changed, what was deferred, what should be revisited next, and which note-affecting interactions created future work.
     Treat the active queue structurally: current work lives in `queue/pending/`, parked unresolved work lives in `queue/deferred/`, and resolved signal records move to `archive/resolved/` with matching receipts in partitioned `history/`.
-12. If the pass discovers additional future work that it intentionally does not complete now, write one or more queue signals using `references/signal-writing.md`.
+14. If the pass discovers additional future work that it intentionally does not complete now, write one or more queue signals using `references/signal-writing.md`.
 
 Use the `obsidian-cli` skill for note-aware retrieval or path-sensitive note operations when practical, but `sleep` is not primarily a CLI skill.
 
@@ -167,6 +175,7 @@ Repeated runs should be incremental.
 - revisit clusters when member notes changed materially
 - avoid rewording stable digests without a real need
 - consume queued future-work signals from note-affecting interactions
+- audit index freshness for the touched region each run rather than assuming prior navigation is still good enough
 - promote bootstrap entries into better navigation surfaces when justified
 - remove bootstrap entries once stronger navigation exists
 
@@ -220,6 +229,7 @@ Before ending a `sleep` pass:
 
 - confirm the pass stayed within scope
 - confirm each touched target gained a meaningful comprehension or integration aid
+- confirm the run ended with an explicit `Index decision`, even when `Notes/Index.md` itself was left unchanged
 - confirm new artifacts live in the knowledge layer, not hidden state
 - confirm unchanged or low-confidence targets were skipped or deferred rather than forced
 - confirm the state layer was updated only with operational memory

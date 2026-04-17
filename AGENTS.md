@@ -53,6 +53,11 @@ Agents should:
 - read it early for broad, exploratory, or synthesis-oriented work
 - treat it as a navigation surface, not as proof that nothing else exists
 - update it only when navigation materially improves
+- treat index reconciliation as a required workflow step for `inbox-triage` and `sleep`
+- end every `inbox-triage` and `sleep` run with an explicit `Index decision`:
+  - `updated Notes/Index.md`
+  - `used existing navigation surface: <path>`
+  - `deferred with sleep signal: <signal_id>`
 
 For multilingual work, agents should keep the shared retrieval surface in English and rely on English metadata on non-English processed notes.
 
@@ -67,8 +72,8 @@ Do not:
 When a task matches one of the workflows above, the final report should include enough evidence to show the workflow was followed.
 
 - Broad vault questions: say whether `Notes/Index.md` was consulted, whether the query was translated into English for retrieval, which notes were the main anchors, and whether raw source documents were needed.
-- Inbox or document ingestion: report the final note or document destination, duplicate-check outcome when relevant, whether required metadata and navigation integration were completed, and whether the index changed.
-- Sleep or maintenance passes: report the scope, links or integration work added or refreshed, whether the index changed, and what future sleep signals were recorded operationally.
+- Inbox or document ingestion: report the final note or document destination, duplicate-check outcome when relevant, whether required metadata and navigation integration were completed, the explicit `Index decision`, the navigation surface path when the index was not updated, and any sleep signal id written for deferred integration work.
+- Sleep or maintenance passes: report the scope, links or integration work added or refreshed, the explicit `Index decision`, the navigation surface path when the index was not updated, and what future sleep signals were recorded operationally.
 - Path-sensitive note edits: say whether Obsidian-aware operations were used and, if not, why a direct edit was safe.
 
 ## Change Posture

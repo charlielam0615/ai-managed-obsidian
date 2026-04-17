@@ -43,6 +43,11 @@ Do not improvise a fresh workflow when an existing skill already matches the tas
 - Read it early for broad, exploratory, or synthesis-oriented work.
 - Treat it as a navigation surface, not as proof that nothing else exists.
 - Update it only when navigation materially improves.
+- Treat index reconciliation as a required workflow step for `inbox-triage` and `sleep`.
+- End every `inbox-triage` and `sleep` run with an explicit `Index decision`:
+  - `updated Notes/Index.md`
+  - `used existing navigation surface: <path>`
+  - `deferred with sleep signal: <signal_id>`
 - For multilingual retrieval, translate broad queries into English and rely on English metadata on non-English processed notes.
 
 ## Completion Evidence
@@ -50,6 +55,6 @@ Do not improvise a fresh workflow when an existing skill already matches the tas
 For workflow-shaped tasks, include brief evidence in the final response:
 
 - Broad questions: whether `Notes/Index.md` was consulted, whether retrieval was translated into English when relevant, the main note anchors, and whether raw source documents were needed.
-- Ingestion tasks: final destinations, duplicate outcome when relevant, whether metadata and navigation integration were completed, and whether the index changed.
-- Maintenance passes: scope, links or integration work added or refreshed, whether the index changed, and what future sleep signals were recorded operationally.
+- Ingestion tasks: final destinations, duplicate outcome when relevant, whether metadata and navigation integration were completed, the explicit `Index decision`, the navigation surface path when the index was not updated, and any sleep signal id written for deferred integration work.
+- Maintenance passes: scope, links or integration work added or refreshed, the explicit `Index decision`, the navigation surface path when the index was not updated, and what future sleep signals were recorded operationally.
 - Path-sensitive edits: whether Obsidian-aware operations were used, or why a direct edit was safe.
